@@ -1598,6 +1598,10 @@
                                 <input type="file" name="photoCopy" accept=".jpg,.jpeg,.png">
                                 <span class="file-info">(JPG, PNG)</span>
                             </label>
+                            <input type="hidden" id="passportCopyLink" name="passportCopyLink">
+<input type="hidden" id="iqamaCopyLink" name="iqamaCopyLink">
+<input type="hidden" id="photoCopyLink" name="photoCopyLink">
+
                         </div>
                         <div class="form-group">
                             <input type="date" name="travelDate" data-placeholder="travelDate" required aria-required="true">
@@ -2985,5 +2989,59 @@
         `;
         document.head.appendChild(style);
     </script>
+    <script>
+// Cloudinary Data
+const CLOUD_NAME = "dywcw157a";
+const UPLOAD_PRESET = "intravvel_uploads";
+
+// Upload Function
+async function uploadToCloudinary(file) {
+    const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`;
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", UPLOAD_PRESET);
+
+    const response = await fetch(url, {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await response.json();
+    return data.secure_url;  
+}
+
+// Button of step 2
+const nextBtnStep2 = document.querySelector('.next-btn');
+
+nextBtnStep2.addEventListener('click', async function (e) {
+    e.preventDefault();  // يمنع الانتقال للخطوة 3 مؤقتاً حتى نرفع الملفات
+
+    // ملف جواز السفر
+    const passportFile = document.querySelector('input[name="passportCopy"]').files[0];
+    const iqamaFile = document.querySelector('input[name="iqamaCopy"]').files[0];
+    const photoFile = document.querySelector('input[name="photoCopy"]').files[0];
+
+    if (!passportFile || !iqamaFile || !photoFile) {
+        alert("من فضلك ارفع جميع المستندات المطلوبة");
+        return;
+    }
+
+    // رفع الملفات
+    const passportURL = await uploadToCloudinary(passportFile);
+    const iqamaURL = await uploadToCloudinary(iqamaFile);
+    const photoURL = await uploadToCloudinary(photoFile);
+
+    // وضع الروابط داخل hidden inputs
+    document.getElementById('passportCopyLink').value = passportURL;
+    document.getElementById('iqamaCopyLink').value = iqamaURL;
+    document.getElementById('photoCopyLink').value = photoURL;
+
+    // السماح بالانتقال للخطوة 3
+    nextBtnStep2.closest('.form-step').classList.remove('active');
+    document.querySelector('[data-step="3"]').classList.add('active');
+});
+</script>
+
 </body>
 </html>
