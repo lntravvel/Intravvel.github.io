@@ -1,0 +1,4383 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTRAVVEL | خدمات تأشيرات وتجديد جوازات احترافية</title>
+    <meta name="description" content="INTRAVVEL - خدمات تأشيرات شنغن، أمريكا، الإمارات، قطر، البحرين، وتجديد جوازات هندي، فلبيني، إندونيسي بأسعار تنافسية وإجراءات سريعة للسعوديين والمقيمين.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E✈️%3C/text%3E%3C/svg%3E">
+    
+    <style>
+        /* ========================================
+           CSS Variables & Base Styles
+           ======================================== */
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #0056b3;
+            --accent-color: #007bff;
+            --background-color: #0a0a0a;
+            --background-light: #1a1a1a;
+            --text-main: #ffffff;
+            --text-secondary: #b0b0b0;
+            --shadow: 0 4px 12px rgba(0,0,0,0.3);
+            --border-color: #333333;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+            --error-color: #e74c3c;
+            --success-color: #27ae60;
+            --footer-link-color: #007bff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            direction: rtl;
+        }
+        
+        body[dir="ltr"] {
+            direction: ltr;
+            text-align: left;
+        }
+        
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 0 0 var(--border-radius) 0;
+            z-index: 100;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* ========================================
+           Layout & Containers
+           ======================================== */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* ========================================
+           Header & Navigation
+           ======================================== */
+        .header {
+            background-color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            position: relative;
+        }
+        
+        .header-controls {
+            order: 1;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        
+        .logo {
+            order: 3;
+        }
+        
+        .nav {
+            order: 2;
+        }
+        
+        .logo-link {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-list {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 2px;
+            background: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle i {
+            font-size: 0.8rem;
+            margin-inline-start: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--primary-color);
+            border: 1px solid var(--border-color);
+            min-width: 220px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+        
+        body[dir="ltr"] .dropdown-menu {
+            right: auto;
+            left: 0;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .control-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-main);
+            padding: 0.6rem;
+            border-radius: 50%;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .control-btn:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .lang-toggle {
+            font-size: 1rem;
+            gap: 0.25rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+        
+        .lang-toggle:hover {
+            border-color: var(--accent-color);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* ========================================
+           Hero Section with Animation
+           ======================================== */
+        .hero {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(0,86,179,0.1) 0%, rgba(0,123,255,0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+        
+        /* Flying Animation */
+        .flying-plane {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--accent-color);
+            opacity: 0.7;
+            z-index: 1;
+            animation: flyAround 20s linear infinite;
+        }
+        
+        .plane-1 {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .plane-2 {
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+        
+        .plane-3 {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+        
+        .plane-4 {
+            top: 30%;
+            right: 25%;
+            animation-delay: 15s;
+        }
+        
+        @keyframes flyAround {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(100vw, -100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* ========================================
+           Buttons & General Styles
+           ======================================== */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            font-family: inherit;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+        
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* ========================================
+           Services Section & Cards
+           ======================================== */
+        .services-section {
+            padding: 5rem 0;
+        }
+        
+        .bg-light {
+            background-color: var(--background-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            font-size: 2.5rem;
+            color: var(--text-main);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            margin: 3rem 0 1.5rem;
+            font-size: 1.8rem;
+            color: var(--text-main);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background: var(--primary-color);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.2);
+            border-color: var(--accent-color);
+        }
+        
+        /* Flag Icon Styles */
+        .card-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .flag-icon {
+            font-size: 4.5rem;
+            line-height: 1;
+            display: inline-block;
+            width: 1em;
+            height: 0.67em;
+            vertical-align: middle;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        /* Flag replacements */
+        .flag-eu { 
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 36"><rect fill="%2300398f" width="54" height="36"/><g fill="%23ffcd00"><g id="c"><g id="b"><path id="a" d="m0 0v36h54v-36h-54zm27 18l-9 6v-12l9 6zm18-12h-9l9 6v-6zm-36 0v6l9-6h-9zm27 24l-9-6 9-6v12zm-18-12l-9 6v-12l9 6zm18 6l9-6h-9v6z"/></g><use href="%23b" transform="rotate(90 27 18)"/></g><use href="%23c" transform="rotate(180 27 18)"/><use href="%23c" transform="rotate(270 27 18)"/></g></svg>'); 
+        }
+
+        .flag-us { 
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57 30"><path fill="%23b22234" d="m0 0h57v30h-57z"/><path fill="%23fff" d="m0 0h57v2h-57zm0 4h57v2h-57zm0 4h57v2h-57zm0 4h57v2h-57zm0 4h57v2h-57zm0 4h57v2h-57zm0 4h57v2h-57zm0 4h57v2h-57z"/><path fill="%233c3b6e" d="m0 0h30v16h-30z"/><g fill="%23fff"><g id="d"><g id="c"><g id="b"><g id="a"><path d="m6 0v1h2v-1z"/><use href="%23a" x="4"/></g><use href="%23b" y="2"/></g><use href="%23c" x="8"/></g><use href="%23d" x="16"/></g><use href="%23d" x="32"/></g></svg>'); 
+        }
+
+        .flag-ae { 
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%2300731f" d="m0 0h60v30h-60z"/><path fill="%23fff" d="m0 0h20v10h-20z"/><path fill="%23000" d="m0 10h20v10h-20z"/><path fill="%23ce1126" d="m0 20h20v10h-20z"/></svg>'); 
+        }
+
+        .flag-bh { 
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%23fff" d="m0 0h60v30h-60z"/><path fill="%23ce1126" d="m15 0h45v30h-45z"/><path fill="%23ce1126" d="m0 0l15 15l-15 15z"/></svg>'); 
+        }
+
+        .flag-qa { 
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%238d1b3d" d="m0 0h60v30h-60z"/><path fill="%23fff" d="m0 0l20 15l-20 15z"/></svg>'); 
+        }
+
+        .flag-in { 
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%23ff9933" d="m0 0h60v10h-60z"/><path fill="%23fff" d="m0 10h60v10h-60z"/><path fill="%23138808" d="m0 20h60v10h-60z"/><circle fill="%23000080" cx="30" cy="15" r="5"/></svg>'); 
+        }
+
+        .flag-ph { 
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%230038a8" d="m0 0h60v15h-60z"/><path fill="%23ce1126" d="m0 15h60v15h-60z"/><path fill="%23fff" d="m0 0l20 15l-20 15z"/><path fill="%23ff0" d="m12 12l2 2l-2 2l-2-2z"/></svg>'); 
+        }
+
+        .flag-id { 
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><path fill="%23f00" d="m0 0h60v30h-60z"/><path fill="%23fff" d="m0 0h60v15h-60z"/></svg>'); 
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .card-price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin: 1rem 0 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .old-price {
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .card-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            min-height: 48px;
+            flex-grow: 1;
+        }
+        
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        /* ========================================
+           Modal Styles
+           ======================================== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        .modal-content {
+            background-color: var(--primary-color);
+            margin: 2rem auto;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.4s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            margin-bottom: 2rem;
+            padding-right: 3rem;
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+        
+        .modal-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .modal-body {
+            margin-bottom: 2rem;
+        }
+        
+        .service-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-item {
+            background: var(--background-light);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border-inline-start: 4px solid var(--accent-color);
+        }
+        
+        body[dir="ltr"] .detail-item {
+            border-inline-start: none;
+            border-inline-end: 4px solid var(--accent-color);
+        }
+        
+        .detail-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+        
+        .detail-item p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .requirements-list {
+            margin-top: 1.5rem;
+        }
+        
+        .requirements-list h4 {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+        
+        .requirements-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .requirements-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .requirements-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .requirements-list li i {
+            color: var(--accent-color);
+            margin-inline-end: 0.5rem;
+            margin-top: 0.25rem;
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* ========================================
+           About Section
+           ======================================== */
+        .about-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(0,86,179,0.1) 0%, rgba(0,123,255,0.05) 100%);
+        }
+        
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .features-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            flex: 1 1 250px;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature h4 {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+        
+        .feature p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        /* ========================================
+           Form Styles
+           ======================================== */
+        .apply-form-section {
+            padding: 5rem 0;
+        }
+        
+        .apply-form-section.hidden {
+            display: none !important;
+        }
+        
+        .multi-step-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--primary-color);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .form-progress {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .progress-bar-container {
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--accent-color);
+            transition: width 0.4s ease;
+            border-radius: 3px;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            position: relative;
+        }
+        
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        
+        .step.active {
+            background: var(--accent-color);
+            color: #fff;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--background-light);
+            color: var(--text-main);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        
+        .file-upload-group {
+            margin-bottom: 2rem;
+        }
+        
+        .file-upload-item {
+            margin-bottom: 2rem;
+            border: 2px dashed var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .file-upload-item:hover {
+            border-color: var(--accent-color);
+        }
+        
+        .file-upload-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            text-align: center;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+        
+        .file-upload-label i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .file-upload-label:hover {
+            color: var(--accent-color);
+        }
+        
+        .file-upload-item input[type="file"] {
+            display: none;
+        }
+        
+        .file-preview {
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .file-preview.active {
+            display: block;
+        }
+        
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            margin-bottom: 0.5rem;
+        }
+        
+        .preview-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .preview-info {
+            flex: 1;
+        }
+        
+        .preview-name {
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+        
+        .preview-size {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .preview-remove {
+            background: none;
+            border: none;
+            color: var(--error-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .preview-remove:hover {
+            background: rgba(231, 76, 60, 0.1);
+        }
+        
+        .upload-progress {
+            margin-top: 1rem;
+        }
+        
+        .upload-progress .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        .progress-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            display: block;
+        }
+        
+        .upload-success {
+            color: var(--success-color);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        
+        .upload-success i {
+            margin-inline-end: 0.5rem;
+        }
+        
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+        
+        .form-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+        
+        .form-nav .btn {
+            flex: 1;
+        }
+        
+        .summary-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-main);
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-note {
+            font-size: 0.9rem;
+            color: var(--error-color);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+        
+        /* ========================================
+           Toast Notifications
+           ======================================== */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            inset-inline-end: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            color: white;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .toast.success {
+            background: var(--success-color);
+        }
+        
+        .toast.error {
+            background: var(--error-color);
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* ========================================
+           WhatsApp Float Button
+           ======================================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            inset-inline-end: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #128c7e;
+        }
+        
+        /* ========================================
+           Footer
+           ======================================== */
+        .footer {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section a {
+            color: #B0B0B0;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Footer link colors */
+        .footer-section .footer-links a {
+            color: var(--footer-link-color);
+        }
+        
+        .footer-section .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: #fff;
+        }
+        
+        .footer-social a:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            grid-column: 1 / -1;
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-copy {
+            color: #B0B0B0;
+            font-size: 0.9rem;
+        }
+        
+        /* ========================================
+           New Sections Styles
+           ======================================== */
+        
+        /* Tracking Section */
+        .tracking-section {
+            padding: 5rem 0;
+        }
+        
+        .tracking-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .tracking-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tracking-form input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background: var(--primary-color);
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+        
+        .tracking-form input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .tracking-result {
+            background: var(--primary-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: right;
+        }
+        
+        .tracking-status {
+            margin-bottom: 1.5rem;
+        }
+        
+        .status-bar {
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .status-progress {
+            height: 100%;
+            background: var(--accent-color);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .status-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .status-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+        
+        .status-step::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--border-color);
+            z-index: 2;
+        }
+        
+        .status-step.completed::before {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .status-step.completed::after {
+            content: '✓';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-weight: bold;
+            z-index: 3;
+        }
+        
+        .status-step.active::before {
+            background: var(--accent-color);
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+        
+        .status-step span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: block;
+            margin-top: 1.5rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--primary-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: var(--background-light);
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+        
+        .faq-question i {
+            transition: var(--transition);
+            color: var(--accent-color);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            margin: 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 5rem 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: var(--primary-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-content p {
+            color: var(--text-main);
+            font-style: italic;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-info strong {
+            display: block;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Blog Section */
+        .blog-section {
+            padding: 5rem 0;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background: var(--primary-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-content h3 {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+        
+        .blog-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* ========================================
+           Utility & Animation Classes
+           ======================================== */
+        .hidden {
+            display: none !important;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+        
+        .initial-hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ========================================
+           Responsive Design
+           ======================================== */
+        @media (max-width: 1024px) {
+            .passport-renewal-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .hero-content {
+                order: 2;
+            }
+            
+            .hero-image {
+                order: 1;
+            }
+            
+            .tracking-form {
+                flex-direction: column;
+            }
+            
+            .status-steps {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .status-step::before {
+                top: 0;
+                left: 0;
+                transform: none;
+            }
+            
+            .status-step span {
+                margin-top: 2.5rem;
+                text-align: right;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                position: relative;
+            }
+            
+            .header-controls {
+                position: static;
+                order: 1;
+            }
+            
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: var(--primary-color);
+                width: 100%;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+                border: 1px solid var(--border-color);
+                border-top: none;
+            }
+            
+            .nav-list.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .logo {
+                order: 3;
+            }
+            
+            .passport-renewal-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+            
+            .service-details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-section {
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            
+            .testimonials-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                flex-direction: column;
+            }
+            
+            .card-actions {
+                flex-direction: column;
+            }
+            
+            .form-nav {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* ========================================
+           Accessibility
+           ======================================== */
+        :focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link" data-i18n="skipToContent">انتقل للمحتوى الرئيسي</a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Language toggle and mobile menu -->
+            <div class="header-controls">
+                <button id="lang-toggle" class="control-btn lang-toggle" aria-label="تبديل اللغة">
+                    <i class="fas fa-globe"></i>
+                    <span class="lang-text">EN</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#home" class="logo-link" aria-label="INTRAVVEL - الصفحة الرئيسية">
+                    <span class="logo-text" data-i18n="logoText">INTRAVVEL</span>
+                </a>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="nav" role="navigation" aria-label="القائمة الرئيسية">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link" data-i18n="home">الرئيسية</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#services" class="nav-link dropdown-toggle" data-i18n="services" aria-haspopup="true" aria-expanded="false">
+                            <span data-i18n="services">الخدمات</span> <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#main-services" data-i18n="mainServices">خدمات التأشيرات</a></li>
+                            <li><a href="#passport-services" data-i18n="passportServices">تجديد الجوازات</a></li>
+                            <li><a href="#gulf-visas" data-i18n="gulfVisas">تأشيرات الخليج</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#about" class="nav-link" data-i18n="about">من نحن</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link" data-i18n="contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Flying Animation -->
+    <main id="main-content">
+        <section class="hero" id="home">
+            <!-- Flying Planes Animation -->
+            <div class="flying-plane plane-1">✈️</div>
+            <div class="flying-plane plane-2">✈️</div>
+            <div class="flying-plane plane-3">✈️</div>
+            <div class="flying-plane plane-4">✈️</div>
+            
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-i18n="heroTitle">INTRAVVEL - خدمات تأشيرات وتجديد جوازات محترفة للسعوديين والمقيمين</h1>
+                    <p class="hero-subtitle" data-i18n="heroSubtitle">احصل على تأشيراتك بسهولة وسرعة مع فريق متخصص يضمن لك أعلى مستويات الدقة والاحترافية.</p>
+                    <a href="#main-services" class="btn btn-primary btn-lg" data-i18n="startNow">ابدأ الآن</a>
+                </div>
+                <div class="hero-image">
+                    <img 
+                        src="https://github.com/Essxm/HERO-IMAGE/raw/refs/heads/main/Group%2014.svg" 
+                        alt="خدمات التأشيرات والجوازات - تصميم احترافي" 
+                        loading="lazy"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\'%3E%3Crect width=\'600\' height=\'400\' fill=\'%230a0a0a\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' font-family=\'Tajawal\' font-size=\'24\' fill=\'%23007bff\'%3EINTRAVVEL%3C/text%3E%3C/svg%3E'"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Services Section -->
+        <section id="main-services" class="services-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="mainServices">خدمات التأشيرات</h2>
+                <div class="services-grid">
+                    <!-- Schengen Service -->
+                    <div class="service-card initial-hidden" data-service-id="schengen">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-eu"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="schengenTitle">تجهيز ملف شنغن</h3>
+                        <p class="card-price">199 <span data-i18n="currency">ريال سعودي</span></p>
+                        <p class="card-desc" data-i18n="schengenDesc">خدمة تعبئة وتجهيز ملف الشنغن كاملاً بدون موعد (حجوزات، تأمين، نماذج). <span class="text-secondary" data-i18n="appointmentOnClient">(الموعد على العميل)</span></p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="schengen" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                    
+                    <!-- USA Application Service -->
+                    <div class="service-card initial-hidden" data-service-id="usa-application">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-us"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="usaAppTitle">تعبئة أبلكيشن أمريكا</h3>
+                        <p class="card-price">89 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 130</span></p>
+                        <p class="card-desc" data-i18n="usaAppDesc">تعبئة نماذج تأشيرة الولايات المتحدة بكل احترافية، شاملة دعم الاستمارات والأبلكيشن.</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="usa-application" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Schengen Appointment Service -->
+                    <div class="service-card initial-hidden" data-service-id="schengen-appointment">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-eu"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="schengenAppointmentTitle">حجز موعد تأشيرة شنغن</h3>
+                        <p class="card-price">150 - 250 <span data-i18n="currency">ريال</span></p>
+                        <p class="card-desc" data-i18n="schengenAppointmentDesc">حجز مواعيد التأشيرات المختلفة بأسعار تنافسية. السعر يعتمد على دولة التأشيرة ونوعها.</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="schengen-appointment" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                    
+                    <!-- USA Appointment Service -->
+                    <div class="service-card initial-hidden" data-service-id="usa-appointment">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-us"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="usaAppointmentTitle">حجز موعد تأشيرة أمريكا</h3>
+                        <p class="card-price">899 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 1000</span></p>
+                        <p class="card-desc" data-i18n="usaAppointmentDesc">حجز موعد مقابلة السفارة الأمريكية مع متابعة كاملة للإجراءات والتنسيق.</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="usa-appointment" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Flight & Hotel Booking Service -->
+                    <div class="service-card initial-hidden" data-service-id="flight-hotel-booking">
+                        <div class="card-icon">
+                            <i class="fas fa-plane" style="color: var(--accent-color); font-size: 3.5rem;"></i>
+                        </div>
+                        <h3 class="card-title">حجوزات الطيران والفنادق المبدئية</h3>
+                        <p class="card-price">50 <span data-i18n="currency">ريال</span></p>
+                        <p class="card-desc">خدمة حجوزات الطيران والفنادق المبدئية اللازمة للتقديم على التأشيرات.</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="flight-hotel-booking" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passport Renewal Services -->
+        <section id="passport-services" class="services-section bg-light">
+            <div class="container">
+                <h2 class="section-title" data-i18n="passportServices">تجديد الجوازات</h2>
+                <div class="services-grid passport-renewal-grid">
+                    <!-- Indian Passport -->
+                    <div class="service-card initial-hidden" data-service-id="indian-passport">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-in"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="indianPassportTitle">تجديد الجواز الهندي</h3>
+                        <p class="card-price">69 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 100</span></p>
+                        <p class="card-desc" data-i18n="indianPassportDesc">تجديد جواز السفر الهندي إلكترونيًا بكل سهولة ويسر للمقيمين. <strong data-i18n="includesApplication">تشمل تجهيز الأبلكيشن وحجز الموعد.</strong></p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="indian-passport" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Philippine Passport -->
+                    <div class="service-card initial-hidden" data-service-id="philippine-passport">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-ph"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="philippinePassportTitle">تجديد الجواز الفلبيني</h3>
+                        <p class="card-price">69 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 100</span></p>
+                        <p class="card-desc" data-i18n="philippinePassportDesc">إجراءات تجديد الجواز الفلبيني بسرعة ودقة عالية. <strong data-i18n="includesApplication">تشمل تجهيز الأبلكيشن وحجز الموعد.</strong></p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="philippine-passport" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Indonesian Passport -->
+                    <div class="service-card initial-hidden" data-service-id="indonesian-passport">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-id"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="indonesianPassportTitle">تجديد الجواز الإندونيسي</h3>
+                        <p class="card-price">69 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 100</span></p>
+                        <p class="card-desc" data-i18n="indonesianPassportDesc">تجديد جواز السفر الإندونيسي بأبسط الخطوات. <strong data-i18n="includesApplication">تشمل تجهيز الأبلكيشن وحجز الموعد.</strong></p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="indonesian-passport" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gulf Visas Services -->
+        <section id="gulf-visas" class="services-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="gulfVisas">تأشيرات الخليج</h2>
+                <div class="services-grid">
+                    <!-- UAE Visa -->
+                    <div class="service-card initial-hidden" data-service-id="uae">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-ae"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="uaeVisaTitle">تأشيرة الإمارات للمقيمين</h3>
+                        <p class="card-price">349 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 500</span></p>
+                        <p class="card-desc" data-i18n="uaeVisaDesc">تأشيرة دخول سريعة للإمارات مع دعم كامل للمقيمين في المملكة.</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="uae" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Bahrain Visa -->
+                    <div class="service-card initial-hidden" data-service-id="bahrain">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-bh"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="bahrainVisaTitle">تأشيرة البحرين للمقيمين</h3>
+                        <p class="card-price">149 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 600</span></p>
+                        <p class="card-desc" data-i18n="bahrainVisaDesc">تأشيرة دخول متعدد لمدة 3 أشهر، إصدار سريع (2-5 أيام عمل) للمقيمين في السعودية.</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="bahrain" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Qatar Visa -->
+                    <div class="service-card initial-hidden" data-service-id="qatar">
+                        <div class="card-icon">
+                            <span class="flag-icon flag-qa"></span>
+                        </div>
+                        <h3 class="card-title" data-i18n="qatarVisaTitle">تأشيرة قطر</h3>
+                        <p class="card-price">99 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 200</span></p>
+                        <p class="card-desc" data-i18n="qatarVisaDesc">تأشيرة دخول لمرة واحدة صالحة لـ 3 أشهر. متطلبات الحجز الفندقي عبر منصة (هيا).</p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary request-service-btn" data-i18n="requestService">اطلب الخدمة</button>
+                            <button class="btn btn-outline read-more-btn" data-service="qatar" data-i18n="readMore">إقرأ المزيد</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracking Section -->
+        <section id="tracking" class="tracking-section bg-light">
+            <div class="container">
+                <h2 class="section-title" data-i18n="trackingTitle">تتبع حالة طلبك</h2>
+                <div class="tracking-container">
+                    <div class="tracking-form">
+                        <input type="text" id="tracking-number" data-placeholder="trackingPlaceholder">
+                        <button class="btn btn-primary" id="track-btn" data-i18n="trackButton">تتبع الطلب</button>
+                    </div>
+                    <div class="tracking-result hidden" id="tracking-result">
+                        <!-- سيتم عرض نتيجة التتبع هنا -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="faqTitle">الأسئلة الشائعة</h2>
+                <div class="faq-container">
+                    <div class="faq-item initial-hidden">
+                        <div class="faq-question">
+                            <h3 data-i18n="faq1Question">كم تستغرق مدة معالجة تأشيرة الشنغن؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq1Answer">مدة المعالجة تتراوح بين 15 إلى 30 يوم عمل حسب الدولة والمواسم. بعض الدول قد تستغرق وقتاً أقل.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item initial-hidden">
+                        <div class="faq-question">
+                            <h3 data-i18n="faq2Question">ما هي المستندات المطلوبة لتجديد الجواز الهندي؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq2Answer">جواز السفر الأصلي، الإقامة سارية المفعول، صورتان شخصيتان، ونسخة من تأشيرة الخروج والعودة.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item initial-hidden">
+                        <div class="faq-question">
+                            <h3 data-i18n="faq3Question">هل يمكنني تعديل بياناتي بعد تقديم الطلب؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq3Answer">نعم، يمكن تعديل البيانات قبل بدء معالجة الطلب. يرجى التواصل مع فريق الدعم.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section bg-light">
+            <div class="container">
+                <h2 class="section-title" data-i18n="testimonialsTitle">آراء عملائنا</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card initial-hidden">
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p data-i18n="testimonial1">"خدمة ممتازة وسريعة، أنصح الجميع بالتعامل معهم. تم تجديد جوازي في وقت قياسي!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23007bff'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40'%3E👤%3C/text%3E%3C/svg%3E" 
+                                 alt="عميل" class="author-avatar">
+                            <div class="author-info">
+                                <strong data-i18n="client1Name">محمد أحمد</strong>
+                                <span data-i18n="client1Service">تجديد الجواز الهندي</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card initial-hidden">
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p data-i18n="testimonial2">"حصلت على تأشيرة الشنغن بسهولة وسلاسة. فريق محترف ومتابعة ممتازة."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23007bff'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40'%3E👤%3C/text%3E%3C/svg%3E" 
+                                 alt="عميل" class="author-avatar">
+                            <div class="author-info">
+                                <strong data-i18n="client2Name">سارة الخالد</strong>
+                                <span data-i18n="client2Service">تأشيرة شنغن</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card initial-hidden">
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p data-i18n="testimonial3">"أسعار منافسة وخدمة عملاء رائعة. أنصح بINTRVVEL لكل من يريد تجديد جوازه."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23007bff'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40'%3E👤%3C/text%3E%3C/svg%3E" 
+                                 alt="عميل" class="author-avatar">
+                            <div class="author-info">
+                                <strong data-i18n="client3Name">أحمد السعدي</strong>
+                                <span data-i18n="client3Service">تجديد الجواز الفلبيني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="blogTitle">أخبار ونصائح التأشيرات</h2>
+                <div class="blog-grid">
+                    <article class="blog-card initial-hidden">
+                        <div class="blog-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23007bff' opacity='0.1'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Tajawal' font-size='20' fill='%23007bff'%3Eنصائح التأشيرات%3C/text%3E%3C/svg%3E" 
+                                 alt="نصائح التأشيرات" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <h3 data-i18n="blog1Title">أهم النصائح للحصول على تأشيرة الشنغن</h3>
+                            <p data-i18n="blog1Desc">تعرف على أهم النصائح والإرشادات لزيادة فرصك في الحصول على تأشيرة الشنغن بنجاح...</p>
+                            <div class="blog-meta">
+                                <span data-i18n="blog1Date">15 ديسمبر 2024</span>
+                                <span data-i18n="blog1ReadTime">قراءة 5 دقائق</span>
+                            </div>
+                            <a href="#" class="btn btn-outline" data-i18n="readMore">قراءة المزيد</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card initial-hidden">
+                        <div class="blog-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23007bff' opacity='0.1'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Tajawal' font-size='20' fill='%23007bff'%3Eتجديد الجوازات%3C/text%3E%3C/svg%3E" 
+                                 alt="تجديد الجوازات" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <h3 data-i18n="blog2Title">دليل تجديد الجوازات للمقيمين في السعودية</h3>
+                            <p data-i18n="blog2Desc">كل ما تحتاج معرفته عن إجراءات تجديد الجوازات المختلفة للمقيمين في المملكة...</p>
+                            <div class="blog-meta">
+                                <span data-i18n="blog2Date">10 ديسمبر 2024</span>
+                                <span data-i18n="blog2ReadTime">قراءة 7 دقائق</span>
+                            </div>
+                            <a href="#" class="btn btn-outline" data-i18n="readMore">قراءة المزيد</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card initial-hidden">
+                        <div class="blog-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23007bff' opacity='0.1'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Tajawal' font-size='20' fill='%23007bff'%3Eتأشيرات الخليج%3C/text%3E%3C/svg%3E" 
+                                 alt="تأشيرات الخليج" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <h3 data-i18n="blog3Title">كل ما تريد معرفته عن تأشيرات دول الخليج</h3>
+                            <p data-i18n="blog3Desc">دليل شامل للإجراءات والمتطلبات اللازمة للحصول على تأشيرات دول الخليج للمقيمين...</p>
+                            <div class="blog-meta">
+                                <span data-i18n="blog3Date">5 ديسمبر 2024</span>
+                                <span data-i18n="blog3ReadTime">قراءة 6 دقائق</span>
+                            </div>
+                            <a href="#" class="btn btn-outline" data-i18n="readMore">قراءة المزيد</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="about">من نحن</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p data-i18n="aboutText">INTRAVVEL منصة رائدة في تقديم خدمات التأشيرات وتجديد الجوازات باحترافية عالية. نحن نتميز بالسرعة والدقة في تقديم الخدمات لعملائنا الكرام.</p>
+                        <div class="features-grid">
+                            <div class="feature initial-hidden">
+                                <i class="fas fa-clock"></i>
+                                <h4 data-i18n="fastServiceTitle">خدمة سريعة</h4>
+                                <p data-i18n="fastServiceDesc">إنجاز المعاملات في أسرع وقت ممكن</p>
+                            </div>
+                            <div class="feature initial-hidden">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4 data-i18n="secureTitle">آمن ومضمون</h4>
+                                <p data-i18n="secureDesc">حماية كاملة لبياناتك ومستنداتك</p>
+                            </div>
+                            <div class="feature initial-hidden">
+                                <i class="fas fa-headset"></i>
+                                <h4 data-i18n="supportTitle">دعم فني</h4>
+                                <p data-i18n="supportDesc">فريق دعم متاح على مدار الساعة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="apply-form-section hidden" id="apply-form" aria-labelledby="form-title">
+            <div class="container">
+                <h2 class="section-title" id="form-title" data-i18n="applyFormTitle">نموذج تقديم الطلب</h2>
+                <form id="multi-step-form" class="multi-step-form" novalidate>
+                    <div class="form-progress">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="steps">
+                            <span class="step active" data-step-id="1">1</span>
+                            <span class="step" data-step-id="2">2</span>
+                            <span class="step" data-step-id="3">3</span>
+                        </div>
+                    </div>
+
+                    <div class="form-step active" data-step="1">
+                        <h3 data-i18n="personalInfoTitle">البيانات الشخصية واختيار الخدمة</h3>
+                        <div class="form-group">
+                            <input type="text" name="fullName" data-placeholder="fullName" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" data-placeholder="email" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" data-placeholder="phone" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <select name="serviceType" required aria-required="true">
+                                <option value="" data-i18n="selectService">اختر الخدمة المطلوبة*</option>
+                                <option value="schengen" data-i18n="schengenOption">تجهيز ملف الشنغن (199 ر.س)</option>
+                                <option value="usa-application" data-i18n="usaAppOption">تعبئة أبلكيشن أمريكا (89 ر.س)</option>
+                                <option value="schengen-appointment" data-i18n="schengenAppointmentOption">حجز موعد شنغن (150-250 ر.س)</option>
+                                <option value="usa-appointment" data-i18n="usaAppointmentOption">حجز موعد أمريكا (899 ر.س)</option>
+                                <option value="flight-hotel-booking" data-i18n="flightHotelBookingOption">حجوزات الطيران والفنادق المبدئية (50 ر.س)</option>
+                                <option value="indian-passport" data-i18n="indianPassportOption">تجديد الجواز الهندي (69 ر.س)</option>
+                                <option value="philippine-passport" data-i18n="philippinePassportOption">تجديد الجواز الفلبيني (69 ر.س)</option>
+                                <option value="indonesian-passport" data-i18n="indonesianPassportOption">تجديد الجواز الإندونيسي (69 ر.س)</option>
+                                <option value="uae" data-i18n="uaeVisaOption">تأشيرة الإمارات (349 ر.س)</option>
+                                <option value="bahrain" data-i18n="bahrainVisaOption">تأشيرة البحرين (149 ر.س)</option>
+                                <option value="qatar" data-i18n="qatarVisaOption">تأشيرة قطر (99 ر.س)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="2">
+                        <h3 data-i18n="documentsTitle">المستندات والمعلومات الإضافية</h3>
+                        
+                        <div class="file-upload-group">
+                            <!-- جواز السفر -->
+                            <div class="file-upload-item">
+                                <label for="passportCopyInput" class="file-upload-label" data-i18n="passportCopyLabel">
+                                    <i class="fas fa-passport"></i>
+                                    <span>صورة من جواز السفر (أمامية)</span>
+                                    <span class="file-info">(PDF, JPG, PNG - الحد الأقصى 5MB)</span>
+                                </label>
+                                <input type="file" name="passportCopy" id="passportCopyInput" accept=".pdf,.jpg,.jpeg,.png" required aria-required="true">
+                                <div class="file-preview" id="passportPreview"></div>
+                                <div class="upload-progress hidden" id="passportProgress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span class="progress-text">جاري الرفع...</span>
+                                </div>
+                            </div>
+
+                            <!-- الإقامة -->
+                            <div class="file-upload-item">
+                                <label for="iqamaCopyInput" class="file-upload-label" data-i18n="iqamaCopyLabel">
+                                    <i class="fas fa-id-card"></i>
+                                    <span>صورة من الإقامة (أمامية)</span>
+                                    <span class="file-info">(PDF, JPG, PNG - الحد الأقصى 5MB)</span>
+                                </label>
+                                <input type="file" name="iqamaCopy" id="iqamaCopyInput" accept=".pdf,.jpg,.jpeg,.png" required aria-required="true">
+                                <div class="file-preview" id="iqamaPreview"></div>
+                                <div class="upload-progress hidden" id="iqamaProgress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span class="progress-text">جاري الرفع...</span>
+                                </div>
+                            </div>
+
+                            <!-- الصورة الشخصية -->
+                            <div class="file-upload-item">
+                                <label for="photoCopyInput" class="file-upload-label" data-i18n="photoCopyLabel">
+                                    <i class="fas fa-camera"></i>
+                                    <span>صورة شخصية (خلفية بيضاء)</span>
+                                    <span class="file-info">(PDF, JPG, PNG - الحد الأقصى 5MB)</span>
+                                </label>
+                                <input type="file" name="photoCopy" id="photoCopyInput" accept=".pdf,.jpg,.jpeg,.png" required aria-required="true">
+                                <div class="file-preview" id="photoPreview"></div>
+                                <div class="upload-progress hidden" id="photoProgress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span class="progress-text">جاري الرفع...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- روابط Cloudinary بعد الرفع -->
+                        <input type="hidden" id="passportCopyLink" name="passportCopyLink">
+                        <input type="hidden" id="iqamaCopyLink" name="iqamaCopyLink">
+                        <input type="hidden" id="photoCopyLink" name="photoCopyLink">
+
+                        <div class="form-group">
+                            <input type="date" name="travelDate" data-placeholder="travelDate" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="workAddress" data-placeholder="workAddress" required aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="3">
+                        <h3 data-i18n="reviewTitle">مراجعة وإرسال الطلب</h3>
+                        <div class="summary" id="form-summary">
+                            <p class="summary-note" data-i18n="reviewNote">الرجاء مراجعة بياناتك والتأكد من صحتها قبل الإرسال.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="termsAgree" required aria-required="true">
+                                <span data-i18n="termsAgree">أوافق على الشروط والأحكام و أتفهم أن قبول أو رفض التأشيرة يرجع لجهة الاختصاص.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-secondary prev-btn" data-i18n="previous" style="display: none;">السابق</button>
+                        <button type="button" class="btn btn-primary next-btn" data-i18n="next">التالي</button>
+                        <button type="submit" class="btn btn-primary submit-btn hidden" data-i18n="submit">إرسال الطلب</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Service Modals -->
+    <!-- Schengen Modal -->
+    <div id="schengen-modal" class="modal" role="dialog" aria-labelledby="schengen-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="schengen-title" data-i18n="schengenTitle">تجهيز ملف شنغن</h2>
+                <p class="modal-price">199 <span data-i18n="currency">ريال سعودي</span></p>
+                <p data-i18n="schengenModalDesc">خدمة تعبئة وتجهيز ملف الشنغن كاملاً بدون موعد (حجوزات، تأمين، نماذج). الموعد على العميل.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4 data-i18n="visaDuration">مدة التأشيرة</h4>
+                        <p data-i18n="schengenDuration">تصل إلى 90 يوم في منطقة الشنغن</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="processingTime">وقت الإصدار</h4>
+                        <p data-i18n="schengenProcessing">من 15 إلى 30 يوم عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="visaType">نوع التأشيرة</h4>
+                        <p data-i18n="schengenType">سياحية / زيارة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="processingMethod">المعالجة</h4>
+                        <p data-i18n="schengenMethod">إلكترونية مع مقابلة شخصية</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span data-i18n="schengenReq1">جواز سفر ساري لمدة 6 أشهر على الأقل</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="schengenReq2">صورتان شخصيتان بخلفية بيضاء</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="schengenReq3">كشف حساب بنكي لآخر 3 أشهر</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="schengenReq5">تذاكر طيران ذهاب وعودة</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="schengenReq6">تأمين سفر يغطي منطقة الشنغن</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="schengen" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- USA Application Modal -->
+    <div id="usa-application-modal" class="modal" role="dialog" aria-labelledby="usa-application-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="usa-application-title" data-i18n="usaAppTitle">تعبئة أبلكيشن أمريكا</h2>
+                <p class="modal-price">89 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 130</span></p>
+                <p data-i18n="usaAppModalDesc">تعبئة نماذج تأشيرة الولايات المتحدة بكل احترافية، شاملة دعم الاستمارات والأبلكيشن.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4 data-i18n="serviceType">نوع الخدمة</h4>
+                        <p data-i18n="usaAppServiceType">تعبئة إلكترونية للنماذج</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="preparationTime">وقت التجهيز</h4>
+                        <p data-i18n="usaAppPreparation">خلال 24-48 ساعة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="support">الدعم</h4>
+                        <p data-i18n="usaAppSupport">مراجعة كاملة للبيانات</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="payment">السداد</h4>
+                        <p data-i18n="usaAppPayment">رسوم السفارة منفصلة</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppReq1">جواز سفر ساري لمدة 6 أشهر</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppReq2">صورة شخصية حديثة (5x5سم)</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppReq3">بيانات شخصية كاملة</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppReq4">سجل السفر السابق (إن وجد)</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppReq5">معلومات عن الزيارة</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="usa-application" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schengen Appointment Modal -->
+    <div id="schengen-appointment-modal" class="modal" role="dialog" aria-labelledby="schengen-appointment-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="schengen-appointment-title" data-i18n="schengenAppointmentTitle">حجز موعد تأشيرة شنغن</h2>
+                <p class="modal-price">150 - 250 <span data-i18n="currency">ريال</span></p>
+                <p data-i18n="schengenAppointmentModalDesc">حجز مواعيد التأشيرات المختلفة بأسعار تنافسية. السعر يعتمد على دولة التأشيرة ونوعها.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4 data-i18n="availableCountries">الدول المتاحة</h4>
+                        <p>جميع دول منطقة الشنغن (ألمانيا، فرنسا، إيطاليا، إسبانيا، هولندا، بلجيكا، سويسرا، النمسا، وغيرها)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="bookingTime">وقت الحجز</h4>
+                        <p data-i18n="schengenBookingTime">خلال 1-3 أيام عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="appointmentType">نوع الموعد</h4>
+                        <p data-i18n="schengenAppointmentType">مقابلة شخصية</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="cost">التكلفة</h4>
+                        <p data-i18n="schengenCost">حسب الدولة والموسم</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span>جواز سفر ساري 6 أشهر</span></li>
+                        <li><i class="fas fa-check"></i> <span>تحديد دولة الدخول الرئيسية</span></li>
+                        <li><i class="fas fa-check"></i> <span>توفر المستندات الأساسية</span></li>
+                        <li><i class="fas fa-check"></i> <span>رسوم السفارة جاهزة</span></li>
+                        <li><i class="fas fa-check"></i> <span>تاريخ السفر المتوقع</span></li>
+                        <li><i class="fas fa-check"></i> <span>تاريخ العودة المتوقع</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="schengen-appointment" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- USA Appointment Modal -->
+    <div id="usa-appointment-modal" class="modal" role="dialog" aria-labelledby="usa-appointment-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="usa-appointment-title" data-i18n="usaAppointmentTitle">حجز موعد تأشيرة أمريكا</h2>
+                <p class="modal-price">899 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 1000</span></p>
+                <p data-i18n="usaAppointmentModalDesc">حجز موعد مقابلة السفارة الأمريكية مع متابعة كاملة للإجراءات والتنسيق.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4 data-i18n="appointmentType">نوع الموعد</h4>
+                        <p data-i18n="usaAppointmentType">مقابلة شخصية بالسفارة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="bookingTime">وقت الحجز</h4>
+                        <p data-i18n="usaBookingTime">خلال 1-5 أيام عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="support">الدعم</h4>
+                        <p data-i18n="usaAppointmentSupport">إعداد للمقابلة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="location">الموقع</h4>
+                        <p data-i18n="usaAppointmentLocation">السفارة الأمريكية بالرياض/جدة</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppointmentReq1">إكمال النموذج DS-160</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppointmentReq2">سداد رسوم السفارة ($160)</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppointmentReq3">صورة شخصية مطابقة للمواصفات</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppointmentReq4">جواز سفر ساري</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="usaAppointmentReq5">مستندات داعمة للزيارة</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="usa-appointment" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flight & Hotel Booking Modal -->
+    <div id="flight-hotel-booking-modal" class="modal" role="dialog" aria-labelledby="flight-hotel-booking-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="flight-hotel-booking-title">حجوزات الطيران والفنادق المبدئية</h2>
+                <p class="modal-price">50 <span data-i18n="currency">ريال</span></p>
+                <p>خدمة حجوزات الطيران والفنادق المبدئية اللازمة للتقديم على التأشيرات.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4>نوع الخدمة</h4>
+                        <p>حجوزات مؤقتة للتقديم</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>وقت التجهيز</h4>
+                        <p>خلال 24-48 ساعة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>الدعم</h4>
+                        <p>حجوزات قابلة للإلغاء</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>الاستخدام</h4>
+                        <p>لأغراض التقديم على التأشيرة فقط</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4>المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span>جواز سفر ساري</span></li>
+                        <li><i class="fas fa-check"></i> <span>تاريخ السفر المتوقع</span></li>
+                        <li><i class="fas fa-check"></i> <span>تاريخ العودة المتوقع</span></li>
+                        <li><i class="fas fa-check"></i> <span>بلد المقصد</span></li>
+                        <li><i class="fas fa-check"></i> <span>المدينة/المدن المراد زيارتها</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="flight-hotel-booking" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indian Passport Modal -->
+    <div id="indian-passport-modal" class="modal" role="dialog" aria-labelledby="indian-passport-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="indian-passport-title" data-i18n="indianPassportTitle">تجديد الجواز الهندي</h2>
+                <p class="modal-price">69 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 100</span></p>
+                <p data-i18n="indianPassportModalDesc">تجديد جواز السفر الهندي إلكترونيًا بكل سهولة ويسر للمقيمين. تشمل تجهيز الأبلكيشن وحجز الموعد.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4 data-i18n="processingTime">وقت الإصدار</h4>
+                        <p data-i18n="indianPassportProcessing">15-28 يوم عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="embassyFees">رسوم السفارة</h4>
+                        <p data-i18n="indianPassportFees">360 ريال + أرامكس</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="appointmentType">الموعد</h4>
+                        <p data-i18n="indianPassportAppointment">حجز موعد البصمة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="duration">المدة</h4>
+                        <p data-i18n="indianPassportDuration">10 سنوات أو 1 سنة</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span data-i18n="indianPassportReq1">جواز السفر الأصلي والصورة</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="indianPassportReq2">الإقامة الأصلية + صورة</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="indianPassportReq3">برنت من أبشر بتاريخ انتهاء الإقامة</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="indianPassportReq4">سداد رسوم المكتب (69 ريال)</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="indianPassportReq5">سداد رسوم السفارة في مركز البصمة</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="indianPassportReq6">تطبيق توكلنا على الجوال</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="indian-passport" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Philippine Passport Modal -->
+    <div id="philippine-passport-modal" class="modal" role="dialog" aria-labelledby="philippine-passport-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="philippine-passport-title" data-i18n="philippinePassportTitle">تجديد الجواز الفلبيني</h2>
+                <p class="modal-price">69 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 100</span></p>
+                <p data-i18n="philippinePassportModalDesc">إجراءات تجديد الجواز الفلبيني بسرعة ودقة عالية. تشمل تجهيز الأبلكيشن وحجز الموعد.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4 data-i18n="processingTime">وقت الإصدار</h4>
+                        <p>4-6 أسابيع عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="embassyFees">رسوم السفارة</h4>
+                        <p>240 ريال</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="appointmentType">الموعد</h4>
+                        <p>حجز موعد البصمة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="duration">المدة</h4>
+                        <p>10 سنوات</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span>جواز السفر الأصلي</span></li>
+                        <li><i class="fas fa-check"></i> <span>الإقامة الأصلية + صورة</span></li>
+                        <li><i class="fas fa-check"></i> <span>صورتان شخصيتان حديثتان</span></li>
+                        <li><i class="fas fa-check"></i> <span>نسخة من تأشيرة الخروج والعودة</span></li>
+                        <li><i class="fas fa-check"></i> <span>سداد رسوم المكتب (69 ريال)</span></li>
+                        <li><i class="fas fa-check"></i> <span>سداد رسوم السفارة</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="philippine-passport" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indonesian Passport Modal -->
+    <div id="indonesian-passport-modal" class="modal" role="dialog" aria-labelledby="indonesian-passport-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="indonesian-passport-title" data-i18n="indonesianPassportTitle">تجديد الجواز الإندونيسي</h2>
+                <p class="modal-price">69 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 100</span></p>
+                <p data-i18n="indonesianPassportModalDesc">تجديد جواز السفر الإندونيسي بأبسط الخطوات. تشمل تجهيز الأبلكيشن وحجز الموعد.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4 data-i18n="processingTime">وقت الإصدار</h4>
+                        <p>3-4 أسابيع عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="embassyFees">رسوم السفارة</h4>
+                        <p>300 ريال</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="appointmentType">الموعد</h4>
+                        <p>حجز موعد البصمة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4 data-i18n="duration">المدة</h4>
+                        <p>5 سنوات</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span>جواز السفر الأصلي</span></li>
+                        <li><i class="fas fa-check"></i> <span>الإقامة الأصلية + صورة</span></li>
+                        <li><i class="fas fa-check"></i> <span>صورتان شخصيتان حديثتان</span></li>
+                        <li><i class="fas fa-check"></i> <span>نسخة من تأشيرة الخروج والعودة</span></li>
+                        <li><i class="fas fa-check"></i> <span>سداد رسوم المكتب (69 ريال)</span></li>
+                        <li><i class="fas fa-check"></i> <span>سداد رسوم السفارة</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="indonesian-passport" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- UAE Visa Modal -->
+    <div id="uae-modal" class="modal" role="dialog" aria-labelledby="uae-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="uae-title" data-i18n="uaeVisaTitle">تأشيرة الإمارات للمقيمين</h2>
+                <p class="modal-price">349 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 500</span></p>
+                <p data-i18n="uaeVisaDesc">تأشيرة دخول سريعة للإمارات مع دعم كامل للمقيمين في المملكة.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4>مدة التأشيرة</h4>
+                        <p>30 يوم</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>وقت الإصدار</h4>
+                        <p>3-5 أيام عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>نوع التأشيرة</h4>
+                        <p>سياحية</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>المعالجة</h4>
+                        <p>إلكترونية</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span>جواز سفر ساري لمدة 6 أشهر</span></li>
+                        <li><i class="fas fa-check"></i> <span>صورة شخصية بخلفية بيضاء</span></li>
+                        <li><i class="fas fa-check"></i> <span>صورة من الإقامة سارية المفعول</span></li>
+                        <li><i class="fas fa-check"></i> <span>سداد رسوم الخدمة (349 ريال)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="uae" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bahrain Visa Modal -->
+    <div id="bahrain-modal" class="modal" role="dialog" aria-labelledby="bahrain-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="bahrain-title" data-i18n="bahrainVisaTitle">تأشيرة البحرين للمقيمين</h2>
+                <p class="modal-price">149 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 600</span></p>
+                <p data-i18n="bahrainVisaDesc">تأشيرة دخول متعدد لمدة 3 أشهر، إصدار سريع (2-5 أيام عمل) للمقيمين في السعودية.</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4>مدة التأشيرة</h4>
+                        <p>3 أشهر دخول متعدد</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>وقت الإصدار</h4>
+                        <p>2-5 أيام عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>نوع التأشيرة</h4>
+                        <p>سياحية</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>المعالجة</h4>
+                        <p>إلكترونية</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span>جواز سفر ساري لمدة 6 أشهر</span></li>
+                        <li><i class="fas fa-check"></i> <span>صورة شخصية بخلفية بيضاء</span></li>
+                        <li><i class="fas fa-check"></i> <span>صورة من الإقامة سارية المفعول</span></li>
+                        <li><i class="fas fa-check"></i> <span>سداد رسوم الخدمة (149 ريال)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="bahrain" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Qatar Visa Modal -->
+    <div id="qatar-modal" class="modal" role="dialog" aria-labelledby="qatar-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="إغلاق">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="qatar-title" data-i18n="qatarVisaTitle">تأشيرة قطر</h2>
+                <p class="modal-price">99 <span data-i18n="currency">ريال</span> <span class="old-price" data-i18n="insteadOf">بدلاً من 200</span></p>
+                <p data-i18n="qatarVisaDesc">تأشيرة دخول لمرة واحدة صالحة لـ 3 أشهر. متطلبات الحجز الفندقي عبر منصة (هيا).</p>
+            </div>
+            <div class="modal-body">
+                <div class="service-details-grid">
+                    <div class="detail-item">
+                        <h4>مدة التأشيرة</h4>
+                        <p>3 أشهر دخول لمرة واحدة</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>وقت الإصدار</h4>
+                        <p>2-4 أيام عمل</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>نوع التأشيرة</h4>
+                        <p>سياحية</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>المعالجة</h4>
+                        <p>إلكترونية عبر منصة هيا</p>
+                    </div>
+                </div>
+                <div class="requirements-list">
+                    <h4 data-i18n="basicRequirements">المتطلبات الأساسية</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span>جواز سفر ساري لمدة 6 أشهر</span></li>
+                        <li><i class="fas fa-check"></i> <span>صورة شخصية بخلفية بيضاء</span></li>
+                        <li><i class="fas fa-check"></i> <span>صورة من الإقامة سارية المفعول</span></li>
+                        <li><i class="fas fa-check"></i> <span>حجز فندق عبر منصة هيا</span></li>
+                        <li><i class="fas fa-check"></i> <span>سداد رسوم الخدمة (99 ريال)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal-btn" data-i18n="close">إغلاق</button>
+                <button class="btn btn-primary request-service-btn" data-service="qatar" data-i18n="requestService">اطلب الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <div class="footer-logo" data-i18n="logoText">INTRAVVEL</div>
+                <p data-i18n="footerDesc">منصة متخصصة في خدمات التأشيرات وتجديد الجوازات باحترافية وسرعة.</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-i18n="quickLinks">روابط سريعة</h4>
+                <a href="#main-services" data-i18n="mainServices">خدمات التأشيرات</a>
+                <a href="#passport-services" data-i18n="passportServices">تجديد الجوازات</a>
+                <a href="#gulf-visas" data-i18n="gulfVisas">تأشيرات الخليج</a>
+                <a href="#about" data-i18n="about">من نحن</a>
+                <a href="/privacy" data-i18n="privacyPolicy">سياسة الخصوصية</a>
+            </div>
+            <div class="footer-section contact-info">
+                <h4 data-i18n="contactUs">اتصل بنا</h4>
+                <p><i class="fas fa-envelope"></i> info@intravvel.com</p>
+                <p><i class="fas fa-phone"></i> +966 50 123 4567</p>
+                <p><i class="fas fa-clock"></i> <span data-i18n="workingHours">الأحد - الخميس: 9 ص - 6 م</span></p>
+                <div class="footer-social">
+                    <a href="https://x.com/intravvel" target="_blank" rel="noopener" aria-label="X (Twitter)">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@intravvel?lang=en" target="_blank" rel="noopener" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.snapchat.com/explore/Intravvel-Visa-consultants" target="_blank" rel="noopener" aria-label="Snapchat">
+                        <i class="fab fa-snapchat"></i>
+                    </a>
+                    <a href="https://www.instagram.com/intravvel" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/intravvel" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://wa.me/966501234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy" data-i18n="copyright">&copy; 2024 INTRAVVEL. جميع الحقوق محفوظة.</p>
+                <div class="footer-links">
+                    <a href="/privacy" data-i18n="privacyPolicy">سياسة الخصوصية</a>
+                    <a href="/terms" data-i18n="termsAndConditions">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/966501234567" class="whatsapp-float" target="_blank" rel="noopener" aria-label="تواصل معنا على واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- EmailJS Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- JavaScript -->
+    <script>
+        // ========================================
+        // Configuration & Constants
+        // ========================================
+        const CONFIG = {
+            MAX_FILE_SIZE: 5 * 1024 * 1024,
+            ALLOWED_EXTENSIONS: ['.pdf', '.jpg', '.jpeg', '.png'],
+            WHATSAPP_NUMBER: '966501234567'
+        };
+
+        // ========================================
+        // Translation Data - COMPLETE & ACCURATE
+        // ========================================
+        const translations = {
+            ar: {
+                // Navigation & General
+                logoText: 'INTRAVVEL',
+                home: 'الرئيسية',
+                services: 'الخدمات',
+                mainServices: 'خدمات التأشيرات',
+                passportServices: 'تجديد الجوازات',
+                gulfVisas: 'تأشيرات الخليج',
+                about: 'من نحن',
+                contact: 'اتصل بنا',
+                skipToContent: 'انتقل للمحتوى الرئيسي',
+                
+                // Hero Section
+                heroTitle: 'INTRAVVEL - خدمات تأشيرات وتجديد جوازات محترفة للسعوديين والمقيمين',
+                heroSubtitle: 'احصل على تأشيراتك بسهولة وسرعة مع فريق متخصص يضمن لك أعلى مستويات الدقة والاحترافية.',
+                startNow: 'ابدأ الآن',
+                
+                // Service Cards
+                requestService: 'اطلب الخدمة',
+                readMore: 'إقرأ المزيد',
+                currency: 'ريال',
+                insteadOf: 'بدلاً من',
+                appointmentOnClient: '(الموعد على العميل)',
+                includesApplication: 'تشمل تجهيز الأبلكيشن وحجز الموعد.',
+                
+                // Service Titles & Descriptions
+                schengenTitle: 'تجهيز ملف شنغن',
+                schengenDesc: 'خدمة تعبئة وتجهيز ملف الشنغن كاملاً بدون موعد (حجوزات، تأمين، نماذج).',
+                
+                usaAppTitle: 'تعبئة أبلكيشن أمريكا',
+                usaAppDesc: 'تعبئة نماذج تأشيرة الولايات المتحدة بكل احترافية، شاملة دعم الاستمارات والأبلكيشن.',
+                
+                schengenAppointmentTitle: 'حجز موعد تأشيرة شنغن',
+                schengenAppointmentDesc: 'حجز مواعيد التأشيرات المختلفة بأسعار تنافسية. السعر يعتمد على دولة التأشيرة ونوعها.',
+                
+                usaAppointmentTitle: 'حجز موعد تأشيرة أمريكا',
+                usaAppointmentDesc: 'حجز موعد مقابلة السفارة الأمريكية مع متابعة كاملة للإجراءات والتنسيق.',
+                
+                indianPassportTitle: 'تجديد الجواز الهندي',
+                indianPassportDesc: 'تجديد جواز السفر الهندي إلكترونيًا بكل سهولة ويسر للمقيمين.',
+                
+                philippinePassportTitle: 'تجديد الجواز الفلبيني',
+                philippinePassportDesc: 'إجراءات تجديد الجواز الفلبيني بسرعة ودقة عالية.',
+                
+                indonesianPassportTitle: 'تجديد الجواز الإندونيسي',
+                indonesianPassportDesc: 'تجديد جواز السفر الإندونيسي بأبسط الخطوات.',
+                
+                uaeVisaTitle: 'تأشيرة الإمارات للمقيمين',
+                uaeVisaDesc: 'تأشيرة دخول سريعة للإمارات مع دعم كامل للمقيمين في المملكة.',
+                
+                bahrainVisaTitle: 'تأشيرة البحرين للمقيمين',
+                bahrainVisaDesc: 'تأشيرة دخول متعدد لمدة 3 أشهر، إصدار سريع (2-5 أيام عمل) للمقيمين في السعودية.',
+                
+                qatarVisaTitle: 'تأشيرة قطر',
+                qatarVisaDesc: 'تأشيرة دخول لمرة واحدة صالحة لـ 3 أشهر. متطلبات الحجز الفندقي عبر منصة (هيا).',
+                
+                // Modal Content - Schengen
+                schengenModalDesc: 'خدمة تعبئة وتجهيز ملف الشنغن كاملاً بدون موعد (حجوزات، تأمين، نماذج). الموعد على العميل.',
+                visaDuration: 'مدة التأشيرة',
+                schengenDuration: 'تصل إلى 90 يوم في منطقة الشنغن',
+                processingTime: 'وقت الإصدار',
+                schengenProcessing: 'من 15 إلى 30 يوم عمل',
+                visaType: 'نوع التأشيرة',
+                schengenType: 'سياحية / زيارة',
+                processingMethod: 'المعالجة',
+                schengenMethod: 'إلكترونية مع مقابلة شخصية',
+                basicRequirements: 'المتطلبات الأساسية',
+                schengenReq1: 'جواز سفر ساري لمدة 6 أشهر على الأقل',
+                schengenReq2: 'صورتان شخصيتان بخلفية بيضاء',
+                schengenReq3: 'كشف حساب بنكي لآخر 3 أشهر',
+                schengenReq5: 'تذاكر طيران ذهاب وعودة',
+                schengenReq6: 'تأمين سفر يغطي منطقة الشنغن',
+                
+                // Modal Content - USA Application
+                usaAppModalDesc: 'تعبئة نماذج تأشيرة الولايات المتحدة بكل احترافية، شاملة دعم الاستمارات والأبلكيشن.',
+                serviceType: 'نوع الخدمة',
+                usaAppServiceType: 'تعبئة إلكترونية للنماذج',
+                preparationTime: 'وقت التجهيز',
+                usaAppPreparation: 'خلال 24-48 ساعة',
+                support: 'الدعم',
+                usaAppSupport: 'مراجعة كاملة للبيانات',
+                payment: 'السداد',
+                usaAppPayment: 'رسوم السفارة منفصلة',
+                usaAppReq1: 'جواز سفر ساري لمدة 6 أشهر',
+                usaAppReq2: 'صورة شخصية حديثة (5x5سم)',
+                usaAppReq3: 'بيانات شخصية كاملة',
+                usaAppReq4: 'سجل السفر السابق (إن وجد)',
+                usaAppReq5: 'معلومات عن الزيارة',
+                
+                // Modal Content - Schengen Appointment
+                schengenAppointmentModalDesc: 'حجز مواعيد التأشيرات المختلفة بأسعار تنافسية. السعر يعتمد على دولة التأشيرة ونوعها.',
+                availableCountries: 'الدول المتاحة',
+                bookingTime: 'وقت الحجز',
+                schengenBookingTime: 'خلال 1-3 أيام عمل',
+                appointmentType: 'نوع الموعد',
+                schengenAppointmentType: 'مقابلة شخصية',
+                cost: 'التكلفة',
+                schengenCost: 'حسب الدولة والموسم',
+                
+                // Modal Content - USA Appointment
+                usaAppointmentModalDesc: 'حجز موعد مقابلة السفارة الأمريكية مع متابعة كاملة للإجراءات والتنسيق.',
+                usaAppointmentType: 'مقابلة شخصية بالسفارة',
+                usaBookingTime: 'خلال 1-5 أيام عمل',
+                usaAppointmentSupport: 'إعداد للمقابلة',
+                location: 'الموقع',
+                usaAppointmentLocation: 'السفارة الأمريكية بالرياض/جدة',
+                usaAppointmentReq1: 'إكمال النموذج DS-160',
+                usaAppointmentReq2: 'سداد رسوم السفارة ($160)',
+                usaAppointmentReq3: 'صورة شخصية مطابقة للمواصفات',
+                usaAppointmentReq4: 'جواز سفر ساري',
+                usaAppointmentReq5: 'مستندات داعمة للزيارة',
+                
+                // Modal Content - Indian Passport
+                indianPassportModalDesc: 'تجديد جواز السفر الهندي إلكترونيًا بكل سهولة ويسر للمقيمين. تشمل تجهيز الأبلكيشن وحجز الموعد.',
+                indianPassportProcessing: '15-28 يوم عمل',
+                embassyFees: 'رسوم السفارة',
+                indianPassportFees: '360 ريال + أرامكس',
+                indianPassportAppointment: 'حجز موعد البصمة',
+                duration: 'المدة',
+                indianPassportDuration: '10 سنوات أو 1 سنة',
+                indianPassportReq1: 'جواز السفر الأصلي والصورة',
+                indianPassportReq2: 'الإقامة الأصلية + صورة',
+                indianPassportReq3: 'برنت من أبشر بتاريخ انتهاء الإقامة',
+                indianPassportReq4: 'سداد رسوم المكتب (69 ريال)',
+                indianPassportReq5: 'سداد رسوم السفارة في مركز البصمة',
+                indianPassportReq6: 'تطبيق توكلنا على الجوال',
+                
+                // About Section
+                aboutText: 'INTRAVVEL منصة رائدة في تقديم خدمات التأشيرات وتجديد الجوازات باحترافية عالية. نحن نتميز بالسرعة والدقة في تقديم الخدمات لعملائنا الكرام.',
+                fastServiceTitle: 'خدمة سريعة',
+                fastServiceDesc: 'إنجاز المعاملات في أسرع وقت ممكن',
+                secureTitle: 'آمن ومضمون',
+                secureDesc: 'حماية كاملة لبياناتك ومستنداتك',
+                supportTitle: 'دعم فني',
+                supportDesc: 'فريق دعم متاح على مدار الساعة',
+                
+                // Form
+                applyFormTitle: 'نموذج تقديم الطلب',
+                personalInfoTitle: 'البيانات الشخصية واختيار الخدمة',
+                documentsTitle: 'المستندات والمعلومات الإضافية',
+                reviewTitle: 'مراجعة وإرسال الطلب',
+                previous: 'السابق',
+                next: 'التالي',
+                submit: 'إرسال الطلب',
+                termsAgree: 'أوافق على الشروط والأحكام و أتفهم أن قبول أو رفض التأشيرة يرجع لجهة الاختصاص.',
+                
+                // Form Placeholders
+                fullName: 'الاسم الكامل',
+                email: 'البريد الإلكتروني',
+                phone: 'رقم الجوال',
+                travelDate: 'تاريخ السفر',
+                workAddress: 'عنوان العمل (المدينة - الحي)',
+                selectService: 'اختر الخدمة المطلوبة*',
+                
+                // Service Options
+                schengenOption: 'تجهيز ملف الشنغن (199 ر.س)',
+                usaAppOption: 'تعبئة أبلكيشن أمريكا (89 ر.س)',
+                schengenAppointmentOption: 'حجز موعد شنغن (150-250 ر.س)',
+                usaAppointmentOption: 'حجز موعد أمريكا (899 ر.س)',
+                flightHotelBookingOption: 'حجوزات الطيران والفنادق المبدئية (50 ر.س)',
+                indianPassportOption: 'تجديد الجواز الهندي (69 ر.س)',
+                philippinePassportOption: 'تجديد الجواز الفلبيني (69 ر.س)',
+                indonesianPassportOption: 'تجديد الجواز الإندونيسي (69 ر.س)',
+                uaeVisaOption: 'تأشيرة الإمارات (349 ر.س)',
+                bahrainVisaOption: 'تأشيرة البحرين (149 ر.س)',
+                qatarVisaOption: 'تأشيرة قطر (99 ر.س)',
+                
+                // File Upload Labels
+                passportCopyLabel: 'صورة من جواز السفر (ساري 6 أشهر)',
+                iqamaCopyLabel: 'صورة من الإقامة/الهوية (للمقيمين والسعوديين)',
+                photoCopyLabel: 'صورة شخصية (لبعض الخدمات)',
+                
+                reviewNote: 'الرجاء مراجعة بياناتك والتأكد من صحتها قبل الإرسال.',
+                
+                // Footer
+                footerDesc: 'منصة متخصصة في خدمات التأشيرات وتجديد الجوازات باحترافية وسرعة.',
+                quickLinks: 'روابط سريعة',
+                contactUs: 'اتصل بنا',
+                workingHours: 'الأحد - الخميس: 9 ص - 6 م',
+                privacyPolicy: 'سياسة الخصوصية',
+                termsAndConditions: 'الشروط والأحكام',
+                copyright: '&copy; 2024 INTRAVVEL. جميع الحقوق محفوظة.',
+                
+                // Modal & Buttons
+                close: 'إغلاق',
+
+                // New Sections
+                trackingTitle: 'تتبع حالة طلبك',
+                trackingPlaceholder: 'أدخل رقم الطلب أو البريد الإلكتروني',
+                trackButton: 'تتبع الطلب',
+                
+                faqTitle: 'الأسئلة الشائعة',
+                faq1Question: 'كم تستغرق مدة معالجة تأشيرة الشنغن؟',
+                faq1Answer: 'مدة المعالجة تتراوح بين 15 إلى 30 يوم عمل حسب الدولة والمواسم. بعض الدول قد تستغرق وقتاً أقل.',
+                faq2Question: 'ما هي المستندات المطلوبة لتجديد الجواز الهندي؟',
+                faq2Answer: 'جواز السفر الأصلي، الإقامة سارية المفعول، صورتان شخصيتان، ونسخة من تأشيرة الخروج والعودة.',
+                faq3Question: 'هل يمكنني تعديل بياناتي بعد تقديم الطلب؟',
+                faq3Answer: 'نعم، يمكن تعديل البيانات قبل بدء معالجة الطلب. يرجى التواصل مع فريق الدعم.',
+                
+                testimonialsTitle: 'آراء عملائنا',
+                testimonial1: '"خدمة ممتازة وسريعة، أنصح الجميع بالتعامل معهم. تم تجديد جوازي في وقت قياسي!"',
+                testimonial2: '"حصلت على تأشيرة الشنغن بسهولة وسلاسة. فريق محترف ومتابعة ممتازة."',
+                testimonial3: '"أسعار منافسة وخدمة عملاء رائعة. أنصح بINTRVVEL لكل من يريد تجديد جوازه."',
+                client1Name: 'محمد أحمد',
+                client1Service: 'تجديد الجواز الهندي',
+                client2Name: 'سارة الخالد',
+                client2Service: 'تأشيرة شنغن',
+                client3Name: 'أحمد السعدي',
+                client3Service: 'تجديد الجواز الفلبيني',
+                
+                blogTitle: 'أخبار ونصائح التأشيرات',
+                blog1Title: 'أهم النصائح للحصول على تأشيرة الشنغن',
+                blog1Desc: 'تعرف على أهم النصائح والإرشادات لزيادة فرصك في الحصول على تأشيرة الشنغن بنجاح...',
+                blog1Date: '15 ديسمبر 2024',
+                blog1ReadTime: 'قراءة 5 دقائق',
+                blog2Title: 'دليل تجديد الجوازات للمقيمين في السعودية',
+                blog2Desc: 'كل ما تحتاج معرفته عن إجراءات تجديد الجوازات المختلفة للمقيمين في المملكة...',
+                blog2Date: '10 ديسمبر 2024',
+                blog2ReadTime: 'قراءة 7 دقائق',
+                blog3Title: 'كل ما تريد معرفته عن تأشيرات دول الخليج',
+                blog3Desc: 'دليل شامل للإجراءات والمتطلبات اللازمة للحصول على تأشيرات دول الخليج للمقيمين...',
+                blog3Date: '5 ديسمبر 2024',
+                blog3ReadTime: 'قراءة 6 دقائق'
+            },
+            en: {
+                // Navigation & General
+                logoText: 'INTRAVVEL',
+                home: 'Home',
+                services: 'Services',
+                mainServices: 'Visa Services',
+                passportServices: 'Passport Renewal',
+                gulfVisas: 'Gulf Visas',
+                about: 'About Us',
+                contact: 'Contact Us',
+                skipToContent: 'Skip to main content',
+                
+                // Hero Section
+                heroTitle: 'INTRAVVEL - Professional Visa & Passport Renewal Services',
+                heroSubtitle: 'Get your visas easily and quickly with a specialized team ensuring the highest levels of accuracy and professionalism.',
+                startNow: 'Start Now',
+                
+                // Service Cards
+                requestService: 'Request Service',
+                readMore: 'Read More',
+                currency: 'SAR',
+                insteadOf: 'instead of',
+                appointmentOnClient: '(Appointment on client)',
+                includesApplication: 'Includes application preparation and appointment booking.',
+                
+                // Service Titles & Descriptions
+                schengenTitle: 'Schengen File Preparation',
+                schengenDesc: 'Complete Schengen file preparation service without appointment (bookings, insurance, forms).',
+                
+                usaAppTitle: 'USA Application Form',
+                usaAppDesc: 'Professional filling of United States visa forms, including form and application support.',
+                
+                schengenAppointmentTitle: 'Schengen Visa Appointment',
+                schengenAppointmentDesc: 'Booking various visa appointments at competitive prices. Price depends on the country and type of visa.',
+                
+                usaAppointmentTitle: 'USA Visa Appointment',
+                usaAppointmentDesc: 'Booking US Embassy interview appointment with full procedure follow-up and coordination.',
+                
+                indianPassportTitle: 'Indian Passport Renewal',
+                indianPassportDesc: 'Easy and convenient electronic renewal of Indian passport for residents.',
+                
+                philippinePassportTitle: 'Philippine Passport Renewal',
+                philippinePassportDesc: 'Fast and accurate Philippine passport renewal procedures.',
+                
+                indonesianPassportTitle: 'Indonesian Passport Renewal',
+                indonesianPassportDesc: 'Indonesian passport renewal with simplest steps.',
+                
+                uaeVisaTitle: 'UAE Visa for Residents',
+                uaeVisaDesc: 'Fast entry visa to UAE with full support for residents in the Kingdom.',
+                
+                bahrainVisaTitle: 'Bahrain Visa for Residents',
+                bahrainVisaDesc: 'Multiple entry visa for 3 months, fast issuance (2-5 working days) for residents in Saudi Arabia.',
+                
+                qatarVisaTitle: 'Qatar Visa',
+                qatarVisaDesc: 'Single entry visa valid for 3 months. Hotel booking requirements via (Hayya) platform.',
+                
+                // Modal Content - Schengen
+                schengenModalDesc: 'Complete Schengen file preparation service without appointment (bookings, insurance, forms). Appointment is on the client.',
+                visaDuration: 'Visa Duration',
+                schengenDuration: 'Up to 90 days in Schengen area',
+                processingTime: 'Processing Time',
+                schengenProcessing: '15 to 30 working days',
+                visaType: 'Visa Type',
+                schengenType: 'Tourist / Visit',
+                processingMethod: 'Processing Method',
+                schengenMethod: 'Electronic with personal interview',
+                basicRequirements: 'Basic Requirements',
+                schengenReq1: 'Valid passport for at least 6 months',
+                schengenReq2: 'Two personal photos with white background',
+                schengenReq3: 'Bank statement for last 3 months',
+                schengenReq5: 'Round-trip flight tickets',
+                schengenReq6: 'Travel insurance covering Schengen area',
+                
+                // Modal Content - USA Application
+                usaAppModalDesc: 'Professional filling of United States visa forms, including form and application support.',
+                serviceType: 'Service Type',
+                usaAppServiceType: 'Electronic form filling',
+                preparationTime: 'Preparation Time',
+                usaAppPreparation: 'Within 24-48 hours',
+                support: 'Support',
+                usaAppSupport: 'Complete data review',
+                payment: 'Payment',
+                usaAppPayment: 'Embassy fees separate',
+                usaAppReq1: 'Valid passport for 6 months',
+                usaAppReq2: 'Recent personal photo (5x5cm)',
+                usaAppReq3: 'Complete personal data',
+                usaAppReq4: 'Previous travel record (if any)',
+                usaAppReq5: 'Visit information',
+                
+                // Modal Content - Schengen Appointment
+                schengenAppointmentModalDesc: 'Booking various visa appointments at competitive prices. Price depends on the country and type of visa.',
+                availableCountries: 'Available Countries',
+                bookingTime: 'Booking Time',
+                schengenBookingTime: 'Within 1-3 working days',
+                appointmentType: 'Appointment Type',
+                schengenAppointmentType: 'Personal interview',
+                cost: 'Cost',
+                schengenCost: 'Depending on country and season',
+                
+                // Modal Content - USA Appointment
+                usaAppointmentModalDesc: 'Booking US Embassy interview appointment with full procedure follow-up and coordination.',
+                usaAppointmentType: 'Personal interview at embassy',
+                usaBookingTime: 'Within 1-5 working days',
+                usaAppointmentSupport: 'Interview preparation',
+                location: 'Location',
+                usaAppointmentLocation: 'US Embassy in Riyadh/Jeddah',
+                usaAppointmentReq1: 'Complete DS-160 form',
+                usaAppointmentReq2: 'Pay embassy fees ($160)',
+                usaAppointmentReq3: 'Personal photo meeting specifications',
+                usaAppointmentReq4: 'Valid passport',
+                usaAppointmentReq5: 'Supporting documents for visit',
+                
+                // Modal Content - Indian Passport
+                indianPassportModalDesc: 'Easy and convenient electronic renewal of Indian passport for residents. Includes application preparation and appointment booking.',
+                indianPassportProcessing: '15-28 working days',
+                embassyFees: 'Embassy Fees',
+                indianPassportFees: '360 SAR + Aramex',
+                indianPassportAppointment: 'Fingerprint appointment booking',
+                duration: 'Duration',
+                indianPassportDuration: '10 years or 1 year',
+                indianPassportReq1: 'Original passport and copy',
+                indianPassportReq2: 'Original residence + copy',
+                indianPassportReq3: 'Absher print with residence expiry date',
+                indianPassportReq4: 'Pay office fees (69 SAR)',
+                indianPassportReq5: 'Pay embassy fees at fingerprint center',
+                indianPassportReq6: 'Tawakkalna app on mobile',
+                
+                // About Section
+                aboutText: 'INTRAVVEL is a leading platform in providing professional visa and passport renewal services. We stand out with speed and precision in serving our valued customers.',
+                fastServiceTitle: 'Fast Service',
+                fastServiceDesc: 'Complete transactions in the shortest time possible',
+                secureTitle: 'Secure & Guaranteed',
+                secureDesc: 'Full protection for your data and documents',
+                supportTitle: 'Technical Support',
+                supportDesc: 'Support team available 24/7',
+                
+                // Form
+                applyFormTitle: 'Application Form',
+                personalInfoTitle: 'Personal Information and Service Selection',
+                documentsTitle: 'Documents and Additional Information',
+                reviewTitle: 'Review and Submit Application',
+                previous: 'Previous',
+                next: 'Next',
+                submit: 'Submit Application',
+                termsAgree: 'I agree to the Terms & Conditions and understand that visa acceptance or rejection is subject to the relevant authority.',
+                
+                // Form Placeholders
+                fullName: 'Full Name',
+                email: 'Email Address',
+                phone: 'Phone Number',
+                travelDate: 'Travel Date',
+                workAddress: 'Work Address (City - District)',
+                selectService: 'Select Required Service*',
+                
+                // Service Options
+                schengenOption: 'Schengen File Preparation (199 SAR)',
+                usaAppOption: 'USA Application Form (89 SAR)',
+                schengenAppointmentOption: 'Schengen Appointment (150-250 SAR)',
+                usaAppointmentOption: 'USA Appointment (899 SAR)',
+                flightHotelBookingOption: 'Flight & Hotel Preliminary Bookings (50 SAR)',
+                indianPassportOption: 'Indian Passport Renewal (69 SAR)',
+                philippinePassportOption: 'Philippine Passport Renewal (69 SAR)',
+                indonesianPassportOption: 'Indonesian Passport Renewal (69 SAR)',
+                uaeVisaOption: 'UAE Visa (349 SAR)',
+                bahrainVisaOption: 'Bahrain Visa (149 SAR)',
+                qatarVisaOption: 'Qatar Visa (99 SAR)',
+                
+                // File Upload Labels
+                passportCopyLabel: 'Passport Copy (valid 6 months)',
+                iqamaCopyLabel: 'Residence/ID Copy (for residents and Saudis)',
+                photoCopyLabel: 'Personal Photo (for some services)',
+                
+                reviewNote: 'Please review your information and ensure it is correct before submitting.',
+                
+                // Footer
+                footerDesc: 'A specialized platform for visa services and passport renewal with professionalism and speed.',
+                quickLinks: 'Quick Links',
+                contactUs: 'Contact Us',
+                workingHours: 'Sunday - Thursday: 9 AM - 6 PM',
+                privacyPolicy: 'Privacy Policy',
+                termsAndConditions: 'Terms & Conditions',
+                copyright: '&copy; 2024 INTRAVVEL. All Rights Reserved.',
+                
+                // Modal & Buttons
+                close: 'Close',
+
+                // New Sections
+                trackingTitle: 'Track Your Order',
+                trackingPlaceholder: 'Enter order number or email',
+                trackButton: 'Track Order',
+                
+                faqTitle: 'Frequently Asked Questions',
+                faq1Question: 'How long does Schengen visa processing take?',
+                faq1Answer: 'Processing time ranges between 15 to 30 working days depending on the country and season. Some countries may take less time.',
+                faq2Question: 'What documents are required for Indian passport renewal?',
+                faq2Answer: 'Original passport, valid residence permit, two personal photos, and copy of exit-reentry visa.',
+                faq3Question: 'Can I modify my data after submitting the application?',
+                faq3Answer: 'Yes, data can be modified before processing starts. Please contact support team.',
+                
+                testimonialsTitle: 'Customer Reviews',
+                testimonial1: '"Excellent and fast service, I recommend everyone to deal with them. My passport was renewed in record time!"',
+                testimonial2: '"I got my Schengen visa easily and smoothly. Professional team and excellent follow-up."',
+                testimonial3: '"Competitive prices and great customer service. I recommend INTRVVEL for anyone who wants to renew their passport."',
+                client1Name: 'Mohammed Ahmed',
+                client1Service: 'Indian Passport Renewal',
+                client2Name: 'Sarah Al-Khaled',
+                client2Service: 'Schengen Visa',
+                client3Name: 'Ahmed Al-Saadi',
+                client3Service: 'Philippine Passport Renewal',
+                
+                blogTitle: 'Visa News & Tips',
+                blog1Title: 'Top Tips for Getting Schengen Visa',
+                blog1Desc: 'Learn the most important tips and guidelines to increase your chances of successfully obtaining a Schengen visa...',
+                blog1Date: 'December 15, 2024',
+                blog1ReadTime: '5 min read',
+                blog2Title: 'Passport Renewal Guide for Residents in Saudi Arabia',
+                blog2Desc: 'Everything you need to know about passport renewal procedures for residents in the Kingdom...',
+                blog2Date: 'December 10, 2024',
+                blog2ReadTime: '7 min read',
+                blog3Title: 'Everything You Need to Know About Gulf Visas',
+                blog3Desc: 'Comprehensive guide to procedures and requirements for obtaining Gulf visas for residents...',
+                blog3Date: 'December 5, 2024',
+                blog3ReadTime: '6 min read'
+            }
+        };
+
+        // ========================================
+        // Utility Functions
+        // ========================================
+        const Utils = {
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            },
+            
+            sanitize(input) {
+                const div = document.createElement('div');
+                div.textContent = input;
+                return div.innerHTML;
+            },
+            
+            validateEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            },
+            
+            validatePhone(phone) {
+                return /^[0-9+\-\s()]{10,}$/.test(phone);
+            },
+            
+            showToast(message, type = 'success') {
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${message}`;
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => toast.remove(), 300);
+                }, 5000);
+            }
+        };
+
+        // ========================================
+        // Translation System
+        // ========================================
+        const TranslationSystem = {
+            currentLang: localStorage.getItem('lang') || 'ar',
+            
+            init() {
+                this.applyLanguage(this.currentLang);
+                this.bindEvents();
+            },
+            
+            bindEvents() {
+                document.getElementById('lang-toggle').addEventListener('click', () => {
+                    this.toggleLanguage();
+                });
+            },
+            
+            toggleLanguage() {
+                this.currentLang = this.currentLang === 'ar' ? 'en' : 'ar';
+                this.applyLanguage(this.currentLang);
+                localStorage.setItem('lang', this.currentLang);
+            },
+            
+            applyLanguage(lang) {
+                // Update page direction
+                document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+                document.documentElement.setAttribute('lang', lang);
+                document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+                
+                // Update language button text
+                document.querySelector('.lang-text').textContent = lang === 'ar' ? 'EN' : 'ع';
+                
+                // Apply translations to all elements
+                this.translateAllContent(lang);
+            },
+            
+            translateAllContent(lang) {
+                const t = translations[lang];
+                if (!t) return;
+
+                // Translate all elements with data-i18n attribute
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (t[key]) {
+                        el.innerHTML = t[key];
+                    }
+                });
+
+                // Translate input placeholders
+                document.querySelectorAll('[data-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-placeholder');
+                    if (t[key]) {
+                        el.placeholder = t[key];
+                    }
+                });
+
+                // Update service options in select
+                this.updateServiceOptions(lang);
+            },
+            
+            updateServiceOptions(lang) {
+                const services = {
+                    ar: {
+                        'selectService': 'اختر الخدمة المطلوبة*',
+                        'schengenOption': 'تجهيز ملف الشنغن (199 ر.س)',
+                        'usaAppOption': 'تعبئة أبلكيشن أمريكا (89 ر.س)',
+                        'schengenAppointmentOption': 'حجز موعد شنغن (150-250 ر.س)',
+                        'usaAppointmentOption': 'حجز موعد أمريكا (899 ر.س)',
+                        'flightHotelBookingOption': 'حجوزات الطيران والفنادق المبدئية (50 ر.س)',
+                        'indianPassportOption': 'تجديد الجواز الهندي (69 ر.س)',
+                        'philippinePassportOption': 'تجديد الجواز الفلبيني (69 ر.س)',
+                        'indonesianPassportOption': 'تجديد الجواز الإندونيسي (69 ر.س)',
+                        'uaeVisaOption': 'تأشيرة الإمارات (349 ر.س)',
+                        'bahrainVisaOption': 'تأشيرة البحرين (149 ر.س)',
+                        'qatarVisaOption': 'تأشيرة قطر (99 ر.س)'
+                    },
+                    en: {
+                        'selectService': 'Select Required Service*',
+                        'schengenOption': 'Schengen File Preparation (199 SAR)',
+                        'usaAppOption': 'USA Application Form (89 SAR)',
+                        'schengenAppointmentOption': 'Schengen Appointment (150-250 SAR)',
+                        'usaAppointmentOption': 'USA Appointment (899 SAR)',
+                        'flightHotelBookingOption': 'Flight & Hotel Preliminary Bookings (50 SAR)',
+                        'indianPassportOption': 'Indian Passport Renewal (69 SAR)',
+                        'philippinePassportOption': 'Philippine Passport Renewal (69 SAR)',
+                        'indonesianPassportOption': 'Indonesian Passport Renewal (69 SAR)',
+                        'uaeVisaOption': 'UAE Visa (349 SAR)',
+                        'bahrainVisaOption': 'Bahrain Visa (149 SAR)',
+                        'qatarVisaOption': 'Qatar Visa (99 SAR)'
+                    }
+                };
+                
+                const select = document.querySelector('select[name="serviceType"]');
+                if (select && services[lang]) {
+                    const currentValue = select.value;
+                    select.innerHTML = '';
+                    
+                    // Add default option
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = services[lang]['selectService'];
+                    select.appendChild(defaultOption);
+                    
+                    // Add service options
+                    const serviceKeys = [
+                        'schengenOption', 'usaAppOption', 'schengenAppointmentOption', 
+                        'usaAppointmentOption', 'flightHotelBookingOption', 'indianPassportOption', 
+                        'philippinePassportOption', 'indonesianPassportOption', 'uaeVisaOption', 
+                        'bahrainVisaOption', 'qatarVisaOption'
+                    ];
+                    
+                    serviceKeys.forEach(key => {
+                        const option = document.createElement('option');
+                        option.value = key.replace('Option', '');
+                        option.textContent = services[lang][key];
+                        select.appendChild(option);
+                    });
+                    
+                    select.value = currentValue;
+                }
+            }
+        };
+
+        // ========================================
+        // Mobile Menu
+        // ========================================
+        const MobileMenu = {
+            init() {
+                this.toggle = document.querySelector('.mobile-menu-toggle');
+                this.navList = document.querySelector('.nav-list');
+                this.bindEvents();
+            },
+            
+            bindEvents() {
+                if (this.toggle) {
+                    this.toggle.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.toggleMenu();
+                    });
+                }
+                
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.header-container')) {
+                        this.closeMenu();
+                    }
+                });
+                
+                if (this.navList) {
+                    this.navList.querySelectorAll('.nav-link').forEach(link => {
+                        link.addEventListener('click', () => this.closeMenu());
+                    });
+                }
+            },
+            
+            toggleMenu() {
+                if (this.navList) {
+                    const isOpen = this.navList.classList.toggle('active');
+                    if (this.toggle) {
+                        this.toggle.setAttribute('aria-expanded', isOpen);
+                    }
+                }
+            },
+            
+            closeMenu() {
+                if (this.navList) {
+                    this.navList.classList.remove('active');
+                }
+                if (this.toggle) {
+                    this.toggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+        };
+
+        // ========================================
+        // Modal System
+        // ========================================
+        const ModalSystem = {
+            open(modalId) {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+                
+                modal.style.display = 'block';
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                
+                const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable.length) focusable[0].focus();
+            },
+            
+            close(modal) {
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            },
+            
+            init() {
+                document.querySelectorAll('.read-more-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const serviceId = btn.getAttribute('data-service');
+                        this.open(`${serviceId}-modal`);
+                    });
+                });
+                
+                document.querySelectorAll('.close-modal, .close-modal-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const modal = e.target.closest('.modal');
+                        if (modal) this.close(modal);
+                    });
+                });
+                
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) this.close(modal);
+                    });
+                });
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        document.querySelectorAll('.modal').forEach(modal => {
+                            if (modal.style.display === 'block') this.close(modal);
+                        });
+                    }
+                });
+            }
+        };
+
+        // ========================================
+        // Cloudinary File Upload System
+        // ========================================
+        const FileUploadSystem = {
+            CLOUD_NAME: "dywcw157a",
+            UPLOAD_PRESET: "intravvel_uploads",
+            MAX_FILE_SIZE: 5 * 1024 * 1024, // 5MB
+
+            init() {
+                this.bindFileEvents();
+                this.updateNextButton();
+            },
+
+            bindFileEvents() {
+                // جواز السفر
+                document.getElementById('passportCopyInput').addEventListener('change', (e) => {
+                    this.handleFileUpload(e.target.files[0], 'passport');
+                });
+
+                // الإقامة
+                document.getElementById('iqamaCopyInput').addEventListener('change', (e) => {
+                    this.handleFileUpload(e.target.files[0], 'iqama');
+                });
+
+                // الصورة الشخصية
+                document.getElementById('photoCopyInput').addEventListener('change', (e) => {
+                    this.handleFileUpload(e.target.files[0], 'photo');
+                });
+            },
+
+            async handleFileUpload(file, type) {
+                if (!file) return;
+
+                // التحقق من حجم الملف
+                if (file.size > this.MAX_FILE_SIZE) {
+                    this.showError(type, 'حجم الملف كبير جداً. الحد الأقصى 5MB');
+                    return;
+                }
+
+                // التحقق من نوع الملف
+                const allowedTypes = ['.pdf', '.jpg', '.jpeg', '.png'];
+                const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+                if (!allowedTypes.includes(fileExtension)) {
+                    this.showError(type, 'نوع الملف غير مدعوم. يرجى رفع PDF, JPG, أو PNG');
+                    return;
+                }
+
+                // عرض المعاينة
+                this.showPreview(file, type);
+
+                // بدء الرفع
+                try {
+                    await this.uploadFile(file, type);
+                } catch (error) {
+                    this.showError(type, 'فشل في رفع الملف. يرجى المحاولة مرة أخرى');
+                    console.error('Upload error:', error);
+                }
+            },
+
+            async uploadFile(file, type) {
+                const progressElement = document.getElementById(`${type}Progress`);
+                const progressFill = progressElement.querySelector('.progress-fill');
+                const progressText = progressElement.querySelector('.progress-text');
+
+                // إظهار شريط التقدم
+                progressElement.classList.remove('hidden');
+
+                // محاكاة تقدم الرفع
+                let progress = 0;
+                const progressInterval = setInterval(() => {
+                    progress += 5;
+                    progressFill.style.width = `${progress}%`;
+                    if (progress >= 90) clearInterval(progressInterval);
+                }, 100);
+
+                try {
+                    const formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("upload_preset", this.UPLOAD_PRESET);
+
+                    const response = await fetch(`https://api.cloudinary.com/v1_1/${this.CLOUD_NAME}/upload`, {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    if (!response.ok) throw new Error('Upload failed');
+
+                    const data = await response.json();
+                    
+                    // إكمال شريط التقدم
+                    progressFill.style.width = '100%';
+                    progressText.textContent = TranslationSystem.currentLang === 'ar' ? 'تم الرفع بنجاح ✓' : 'Upload successful ✓';
+
+                    // حفظ الرابط
+                    document.getElementById(`${type}CopyLink`).value = data.secure_url;
+
+                    // إظهار رسالة النجاح
+                    this.showSuccess(type);
+
+                    // التحقق من اكتمال جميع الملفات
+                    this.updateNextButton();
+
+                    setTimeout(() => {
+                        progressElement.classList.add('hidden');
+                    }, 2000);
+
+                    return data.secure_url;
+
+                } catch (error) {
+                    progressElement.classList.add('hidden');
+                    throw error;
+                }
+            },
+
+            showPreview(file, type) {
+                const previewElement = document.getElementById(`${type}Preview`);
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const isImage = file.type.startsWith('image/');
+                    const fileSize = (file.size / (1024 * 1024)).toFixed(2);
+
+                    previewElement.innerHTML = `
+                        <div class="preview-item">
+                            ${isImage ? `<img src="${e.target.result}" alt="معاينة ${type}">` : ''}
+                            <div class="preview-info">
+                                <div class="preview-name">${file.name}</div>
+                                <div class="preview-size">${fileSize} MB</div>
+                            </div>
+                            <button class="preview-remove" onclick="FileUploadSystem.removeFile('${type}')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                    previewElement.classList.add('active');
+                };
+
+                if (file.type.startsWith('image/')) {
+                    reader.readAsDataURL(file);
+                } else {
+                    previewElement.innerHTML = `
+                        <div class="preview-item">
+                            <i class="fas fa-file-pdf" style="font-size: 2rem; color: #e74c3c;"></i>
+                            <div class="preview-info">
+                                <div class="preview-name">${file.name}</div>
+                                <div class="preview-size">${(file.size / (1024 * 1024)).toFixed(2)} MB</div>
+                            </div>
+                            <button class="preview-remove" onclick="FileUploadSystem.removeFile('${type}')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                    previewElement.classList.add('active');
+                }
+            },
+
+            removeFile(type) {
+                document.getElementById(`${type}CopyInput`).value = '';
+                document.getElementById(`${type}Preview`).innerHTML = '';
+                document.getElementById(`${type}Preview`).classList.remove('active');
+                document.getElementById(`${type}CopyLink`).value = '';
+                document.getElementById(`${type}Progress`).classList.add('hidden');
+                
+                this.updateNextButton();
+            },
+
+            showError(type, message) {
+                const previewElement = document.getElementById(`${type}Preview`);
+                previewElement.innerHTML = `
+                    <div style="color: var(--error-color); text-align: center; padding: 1rem;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>${message}</div>
+                    </div>
+                `;
+                previewElement.classList.add('active');
+                
+                // إعادة تعيين الحقل
+                document.getElementById(`${type}CopyInput`).value = '';
+            },
+
+            showSuccess(type) {
+                const previewElement = document.getElementById(`${type}Preview`);
+                const successElement = document.createElement('div');
+                successElement.className = 'upload-success';
+                successElement.innerHTML = `<i class="fas fa-check-circle"></i> ${TranslationSystem.currentLang === 'ar' ? 'تم رفع الملف بنجاح' : 'File uploaded successfully'}`;
+                previewElement.appendChild(successElement);
+            },
+
+            updateNextButton() {
+                const passportLink = document.getElementById('passportCopyLink').value;
+                const iqamaLink = document.getElementById('iqamaCopyLink').value;
+                const photoLink = document.getElementById('photoCopyLink').value;
+                
+                const allFilesUploaded = passportLink && iqamaLink && photoLink;
+                const nextButton = document.querySelector('.next-btn');
+                
+                if (nextButton) {
+                    if (allFilesUploaded) {
+                        nextButton.disabled = false;
+                        nextButton.innerHTML = TranslationSystem.currentLang === 'ar' ? 'التالي ✓' : 'Next ✓';
+                    } else {
+                        nextButton.disabled = true;
+                        nextButton.innerHTML = TranslationSystem.currentLang === 'ar' ? 'يرجى رفع جميع الملفات' : 'Please upload all files';
+                    }
+                }
+            }
+        };
+
+        // ========================================
+        // Form System with EmailJS Integration
+        // ========================================
+        const FormSystem = {
+            currentStep: 1,
+            totalSteps: 3,
+            form: document.getElementById('multi-step-form'),
+            
+            init() {
+                if (!this.form) return;
+                
+                // Initialize EmailJS
+                emailjs.init("qrh3-iXFdu6tziVDK");
+                
+                this.bindEvents();
+                this.loadSavedData();
+                this.updateForm();
+            },
+            
+            bindEvents() {
+                document.querySelectorAll('.next-btn').forEach(btn => {
+                    btn.addEventListener('click', () => this.nextStep());
+                });
+                
+                document.querySelectorAll('.prev-btn').forEach(btn => {
+                    btn.addEventListener('click', () => this.prevStep());
+                });
+                
+                this.form.addEventListener('input', Utils.debounce(() => {
+                    this.saveData();
+                }, 500));
+                
+                this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+            },
+            
+            nextStep() {
+                if (this.validateStep(this.currentStep)) {
+                    this.currentStep++;
+                    this.updateForm();
+                }
+            },
+            
+            prevStep() {
+                this.currentStep--;
+                this.updateForm();
+            },
+            
+            updateForm() {
+                document.querySelectorAll('.form-step').forEach((step, idx) => {
+                    step.classList.toggle('active', idx + 1 === this.currentStep);
+                });
+                
+                document.querySelectorAll('.step').forEach((step, idx) => {
+                    step.classList.toggle('active', idx + 1 <= this.currentStep);
+                });
+                
+                const progressPercentage = ((this.currentStep - 1) / (this.totalSteps - 1)) * 100;
+                const progressBar = document.querySelector('.progress-bar');
+                if (progressBar) {
+                    progressBar.style.width = `${progressPercentage}%`;
+                }
+                
+                document.querySelectorAll('.prev-btn').forEach(btn => {
+                    btn.style.display = this.currentStep === 1 ? 'none' : 'block';
+                });
+                
+                document.querySelectorAll('.next-btn').forEach(btn => {
+                    btn.style.display = this.currentStep === this.totalSteps ? 'none' : 'block';
+                });
+                
+                const submitBtn = document.querySelector('.submit-btn');
+                if (submitBtn) {
+                    submitBtn.classList.toggle('hidden', this.currentStep !== this.totalSteps);
+                }
+                
+                if (this.currentStep === this.totalSteps) {
+                    this.updateSummary();
+                }
+            },
+            
+            validateStep(step) {
+                const stepElement = document.querySelector(`[data-step="${step}"]`);
+                if (!stepElement) return false;
+                
+                const inputs = stepElement.querySelectorAll('[required]');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    this.clearError(input);
+                    const value = input.value.trim();
+                    
+                    if (!value && input.type !== 'file') {
+                        this.showError(input, 'required');
+                        isValid = false;
+                    }
+                    
+                    if (input.type === 'email' && value && !Utils.validateEmail(value)) {
+                        this.showError(input, 'invalidEmail');
+                        isValid = false;
+                    }
+                    
+                    if (input.type === 'tel' && value && !Utils.validatePhone(value)) {
+                        this.showError(input, 'invalidPhone');
+                        isValid = false;
+                    }
+                    
+                    if (input.type === 'date' && value) {
+                        const selectedDate = new Date(value);
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+                        
+                        if (selectedDate < today) {
+                            this.showError(input, 'invalidDate');
+                            isValid = false;
+                        }
+                    }
+                });
+                
+                return isValid;
+            },
+            
+            showError(element, errorKey) {
+                const messages = {
+                    ar: {
+                        required: 'هذا الحقل مطلوب',
+                        invalidEmail: 'البريد الإلكتروني غير صالح',
+                        invalidPhone: 'رقم الهاتف غير صالح',
+                        invalidDate: 'التاريخ يجب أن يكون في المستقبل'
+                    },
+                    en: {
+                        required: 'This field is required',
+                        invalidEmail: 'Invalid email address',
+                        invalidPhone: 'Invalid phone number',
+                        invalidDate: 'Date must be in the future'
+                    }
+                };
+                
+                const message = messages[TranslationSystem.currentLang][errorKey];
+                const errorMsg = document.createElement('span');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = message;
+                element.parentNode.appendChild(errorMsg);
+            },
+            
+            clearError(element) {
+                const container = element.parentNode;
+                const errorMsg = container.querySelector('.error-message');
+                if (errorMsg) errorMsg.remove();
+            },
+            
+            updateSummary() {
+                const summary = document.getElementById('form-summary');
+                const formData = new FormData(this.form);
+                let html = `<p class="summary-note">${TranslationSystem.currentLang === 'ar' ? 'الرجاء مراجعة بياناتك والتأكد من صحتها قبل الإرسال.' : 'Please review your information and ensure it is correct before submitting.'}</p>`;
+                
+                const labels = {
+                    ar: {
+                        fullName: 'الاسم الكامل',
+                        email: 'البريد الإلكتروني',
+                        phone: 'رقم الجوال',
+                        serviceType: 'الخدمة المطلوبة',
+                        travelDate: 'تاريخ السفر',
+                        workAddress: 'عنوان العمل'
+                    },
+                    en: {
+                        fullName: 'Full Name',
+                        email: 'Email',
+                        phone: 'Phone',
+                        serviceType: 'Service Type',
+                        travelDate: 'Travel Date',
+                        workAddress: 'Work Address'
+                    }
+                };
+                
+                const l = labels[TranslationSystem.currentLang];
+                Object.keys(l).forEach(key => {
+                    const value = formData.get(key);
+                    if (value) {
+                        html += `<div class="summary-item"><strong>${l[key]}:</strong> <span>${Utils.sanitize(value)}</span></div>`;
+                    }
+                });
+                
+                if (summary) {
+                    summary.innerHTML = html;
+                }
+            },
+            
+            setService(serviceId) {
+                const select = document.querySelector('select[name="serviceType"]');
+                if (select) {
+                    select.value = serviceId;
+                    const applyForm = document.getElementById('apply-form');
+                    if (applyForm) {
+                        applyForm.classList.remove('hidden');
+                        applyForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    this.currentStep = 1;
+                    this.updateForm();
+                }
+            },
+            
+            saveData() {
+                const data = Object.fromEntries(new FormData(this.form));
+                localStorage.setItem('formData', JSON.stringify(data));
+            },
+            
+            loadSavedData() {
+                const saved = localStorage.getItem('formData');
+                if (!saved) return;
+                
+                const data = JSON.parse(saved);
+                Object.keys(data).forEach(key => {
+                    const field = this.form.querySelector(`[name="${key}"]`);
+                    if (field && field.type !== 'file') {
+                        field.value = data[key];
+                    }
+                });
+            },
+            
+            async handleSubmit(e) {
+                e.preventDefault();
+                if (!this.validateStep(this.currentStep)) return;
+                
+                const confirmMessage = TranslationSystem.currentLang === 'ar' 
+                    ? 'هل أنت متأكد من إرسال الطلب؟'
+                    : 'Are you sure you want to submit the application?';
+                
+                if (!confirm(confirmMessage)) return;
+                
+                const submitBtn = document.querySelector('.submit-btn');
+                const originalHTML = submitBtn.innerHTML;
+                
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${TranslationSystem.currentLang === 'ar' ? 'جاري الإرسال...' : 'Sending...'}`;
+                
+                try {
+                    // Prepare form data
+                    const formData = new FormData(this.form);
+                    const serviceName = this.getServiceName(formData.get('serviceType'));
+                    
+                    // Send email via EmailJS
+                    await emailjs.send("service_qh9dw1t", "template_wsso5zc", {
+                        name: formData.get('fullName') || '',
+                        email: formData.get('email') || '',
+                        phone: formData.get('phone') || '',
+                        service: serviceName,
+                        travel_date: formData.get('travelDate') || '',
+                        work_address: formData.get('workAddress') || '',
+                        passport_link: document.getElementById('passportCopyLink').value || '',
+                        iqama_link: document.getElementById('iqamaCopyLink').value || '',
+                        photo_link: document.getElementById('photoCopyLink').value || '',
+                        message: `New request from INTRAVVEL website\nService: ${serviceName}\nName: ${formData.get('fullName')}\nEmail: ${formData.get('email')}\nPhone: ${formData.get('phone')}`
+                    });
+
+                    const successMessage = TranslationSystem.currentLang === 'ar' 
+                        ? 'تم إرسال طلبك بنجاح! سنتواصل معك قريباً.' 
+                        : 'Your request has been submitted successfully! We will contact you soon.';
+                    
+                    Utils.showToast(successMessage, 'success');
+                    
+                    // Reset form
+                    this.form.reset();
+                    localStorage.removeItem('formData');
+                    const applyForm = document.getElementById('apply-form');
+                    if (applyForm) {
+                        applyForm.classList.add('hidden');
+                    }
+                    this.currentStep = 1;
+                    this.updateForm();
+                    
+                } catch (error) {
+                    console.error('EmailJS Error:', error);
+                    const errorMessage = TranslationSystem.currentLang === 'ar' 
+                        ? 'حدث خطأ. الرجاء المحاولة مرة أخرى.' 
+                        : 'An error occurred. Please try again.';
+                    Utils.showToast(errorMessage, 'error');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalHTML;
+                }
+            },
+            
+            getServiceName(serviceId) {
+                const services = {
+                    ar: {
+                        'schengen': 'تجهيز ملف الشنغن',
+                        'usa-application': 'تعبئة أبلكيشن أمريكا',
+                        'schengen-appointment': 'حجز موعد شنغن',
+                        'usa-appointment': 'حجز موعد أمريكا',
+                        'flight-hotel-booking': 'حجوزات الطيران والفنادق المبدئية',
+                        'indian-passport': 'تجديد الجواز الهندي',
+                        'philippine-passport': 'تجديد الجواز الفلبيني',
+                        'indonesian-passport': 'تجديد الجواز الإندونيسي',
+                        'uae': 'تأشيرة الإمارات',
+                        'bahrain': 'تأشيرة البحرين',
+                        'qatar': 'تأشيرة قطر'
+                    },
+                    en: {
+                        'schengen': 'Schengen File Preparation',
+                        'usa-application': 'USA Application Form',
+                        'schengen-appointment': 'Schengen Appointment',
+                        'usa-appointment': 'USA Appointment',
+                        'flight-hotel-booking': 'Flight & Hotel Preliminary Bookings',
+                        'indian-passport': 'Indian Passport Renewal',
+                        'philippine-passport': 'Philippine Passport Renewal',
+                        'indonesian-passport': 'Indonesian Passport Renewal',
+                        'uae': 'UAE Visa',
+                        'bahrain': 'Bahrain Visa',
+                        'qatar': 'Qatar Visa'
+                    }
+                };
+                
+                return services[TranslationSystem.currentLang][serviceId] || serviceId;
+            }
+        };
+
+        // ========================================
+        // Tracking System
+        // ========================================
+        const TrackingSystem = {
+            init() {
+                document.getElementById('track-btn').addEventListener('click', () => {
+                    this.trackOrder();
+                });
+                
+                document.getElementById('tracking-number').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.trackOrder();
+                    }
+                });
+            },
+            
+            trackOrder() {
+                const trackingNumber = document.getElementById('tracking-number').value.trim();
+                const resultElement = document.getElementById('tracking-result');
+                
+                if (!trackingNumber) {
+                    Utils.showToast(
+                        TranslationSystem.currentLang === 'ar' ? 'يرجى إدخال رقم التتبع' : 'Please enter tracking number',
+                        'error'
+                    );
+                    return;
+                }
+                
+                // محاكاة البحث (في الواقع سيكون اتصال بقاعدة البيانات)
+                this.simulateTracking(trackingNumber, resultElement);
+            },
+            
+            simulateTracking(trackingNumber, resultElement) {
+                // إظهار تحميل
+                resultElement.innerHTML = `
+                    <div class="text-center">
+                        <i class="fas fa-spinner fa-spin fa-2x" style="color: var(--accent-color); margin-bottom: 1rem;"></i>
+                        <p>${TranslationSystem.currentLang === 'ar' ? 'جاري البحث عن طلبك...' : 'Searching for your order...'}</p>
+                    </div>
+                `;
+                resultElement.classList.remove('hidden');
+                
+                // محاكاة تأخير الشبكة
+                setTimeout(() => {
+                    const mockData = this.generateMockTrackingData(trackingNumber);
+                    this.displayTrackingResult(mockData, resultElement);
+                }, 1500);
+            },
+            
+            generateMockTrackingData(trackingNumber) {
+                const statuses = TranslationSystem.currentLang === 'ar' 
+                    ? ['قيد المراجعة', 'جاري المعالجة', 'جاهز للتسليم', 'مكتمل']
+                    : ['Under Review', 'In Processing', 'Ready for Delivery', 'Completed'];
+                
+                const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+                const progress = (statuses.indexOf(randomStatus) + 1) * 25;
+                
+                return {
+                    orderNumber: trackingNumber,
+                    service: TranslationSystem.currentLang === 'ar' ? 'تأشيرة شنغن - ألمانيا' : 'Schengen Visa - Germany',
+                    customerName: TranslationSystem.currentLang === 'ar' ? 'محمد أحمد' : 'Mohammed Ahmed',
+                    status: randomStatus,
+                    progress: progress,
+                    submittedDate: '2024-12-01',
+                    estimatedCompletion: '2024-12-20',
+                    steps: [
+                        { 
+                            name: TranslationSystem.currentLang === 'ar' ? 'استلام الطلب' : 'Order Received', 
+                            completed: true, 
+                            date: '2024-12-01' 
+                        },
+                        { 
+                            name: TranslationSystem.currentLang === 'ar' ? 'مراجعة المستندات' : 'Document Review', 
+                            completed: true, 
+                            date: '2024-12-02' 
+                        },
+                        { 
+                            name: TranslationSystem.currentLang === 'ar' ? 'معالجة الطلب' : 'Order Processing', 
+                            completed: randomStatus === statuses[1] || randomStatus === statuses[2] || randomStatus === statuses[3], 
+                            date: '2024-12-05' 
+                        },
+                        { 
+                            name: TranslationSystem.currentLang === 'ar' ? 'الإنجاز' : 'Completion', 
+                            completed: randomStatus === statuses[2] || randomStatus === statuses[3], 
+                            date: randomStatus === statuses[2] || randomStatus === statuses[3] ? '2024-12-15' : '' 
+                        }
+                    ]
+                };
+            },
+            
+            displayTrackingResult(data, resultElement) {
+                const stepsHtml = data.steps.map((step, index) => `
+                    <div class="status-step ${step.completed ? 'completed' : ''} ${index === data.steps.findIndex(s => !s.completed) ? 'active' : ''}">
+                        <span>${step.name}</span>
+                        ${step.date ? `<small>${step.date}</small>` : ''}
+                    </div>
+                `).join('');
+                
+                const statusLabel = TranslationSystem.currentLang === 'ar' ? 'الحالة الحالية:' : 'Current Status:';
+                const serviceLabel = TranslationSystem.currentLang === 'ar' ? 'الخدمة:' : 'Service:';
+                const submittedLabel = TranslationSystem.currentLang === 'ar' ? 'تاريخ التقديم:' : 'Submission Date:';
+                const estimatedLabel = TranslationSystem.currentLang === 'ar' ? 'التاريخ المتوقع للإنجاز:' : 'Estimated Completion:';
+                
+                resultElement.innerHTML = `
+                    <div class="tracking-status">
+                        <h3>${TranslationSystem.currentLang === 'ar' ? 'طلب #' : 'Order #'}${data.orderNumber}</h3>
+                        <p><strong>${serviceLabel}</strong> ${data.service}</p>
+                        <p><strong>${statusLabel}</strong> <span style="color: var(--accent-color);">${data.status}</span></p>
+                        
+                        <div class="status-bar">
+                            <div class="status-progress" style="width: ${data.progress}%"></div>
+                        </div>
+                        
+                        <div class="status-steps">
+                            ${stepsHtml}
+                        </div>
+                        
+                        <div class="tracking-details">
+                            <p><strong>${submittedLabel}</strong> ${data.submittedDate}</p>
+                            <p><strong>${estimatedLabel}</strong> ${data.estimatedCompletion}</p>
+                        </div>
+                    </div>
+                `;
+            }
+        };
+
+        // ========================================
+        // FAQ System
+        // ========================================
+        const FAQSystem = {
+            init() {
+                document.querySelectorAll('.faq-question').forEach(question => {
+                    question.addEventListener('click', () => {
+                        const item = question.parentElement;
+                        item.classList.toggle('active');
+                    });
+                });
+            }
+        };
+
+        // ========================================
+        // Animation System
+        // ========================================
+        const AnimationSystem = {
+            init() {
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-in-up');
+                            this.observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                document.querySelectorAll('.initial-hidden').forEach(el => {
+                    this.observer.observe(el);
+                });
+            }
+        };
+
+        // ========================================
+        // Service Request Buttons
+        // ========================================
+        function initServiceButtons() {
+            document.querySelectorAll('.request-service-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = e.target.closest('.service-card');
+                    const serviceId = card?.getAttribute('data-service-id') || e.target.getAttribute('data-service');
+                    if (serviceId) {
+                        FormSystem.setService(serviceId);
+                    }
+                });
+            });
+        }
+
+        // ========================================
+        // Smooth Scroll
+        // ========================================
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href').length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            MobileMenu.closeMenu();
+                        }
+                    }
+                });
+            });
+        }
+
+        // ========================================
+        // Initialize Everything
+        // ========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            TranslationSystem.init();
+            MobileMenu.init();
+            ModalSystem.init();
+            FormSystem.init();
+            FileUploadSystem.init();
+            TrackingSystem.init();
+            FAQSystem.init();
+            AnimationSystem.init();
+            initServiceButtons();
+            initSmoothScroll();
+            
+            // Update footer year
+            const footerCopy = document.querySelector('.footer-copy');
+            if (footerCopy) {
+                const currentYear = new Date().getFullYear();
+                footerCopy.innerHTML = footerCopy.innerHTML.replace('2024', currentYear);
+            }
+            
+            console.log('🚀 موقع INTRAVVEL المحدث جاهز للعمل!');
+        });
+
+        // Add slideOut animation for toasts
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
