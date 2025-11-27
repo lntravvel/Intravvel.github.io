@@ -1,0 +1,5 @@
+{
+  "name": "Intravvel Backend & Dashboard",
+  "description": "Full-stack Node.js backend and React Admin Dashboard compatible with the existing Intravvel frontend. Includes CMS capabilities, AI generation, and Vercel serverless deployment support.",
+  "requestFramePermissions": []
+}
