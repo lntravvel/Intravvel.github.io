@@ -1,9 +1,16 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
+import nodemailer from 'nodemailer';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
-// Supabase Configuration (Embedded to fix Vercel Module Resolution)
+// Load environment variables
+dotenv.config({ path: '.env.local' });
+
+// ============================================
+// 1. SUPABASE CLIENT (Inlined)
+// ============================================
 const supabaseUrl = process.env.SUPABASE_URL || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
@@ -22,12 +29,147 @@ const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-import { authenticateToken, AuthRequest } from './middleware/auth';
-import { sendContactNotification } from './utils/email';
-import { generateContent } from './utils/ai';
 
-dotenv.config({ path: '.env.local' });
+// ============================================
+// 2. TYPES & INTERFACES (Inlined)
+// ============================================
+interface AuthRequest extends Request {
+    user?: any;
+}
 
+interface EmailOptions {
+    to: string;
+    subject: string;
+    html: string;
+}
+
+
+// ============================================
+// 3. UTILS: EMAIL (Inlined)
+// ============================================
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
+
+const sendEmail = async (options: EmailOptions): Promise<boolean> => {
+    try {
+        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+            console.warn('Email credentials not configured');
+            return false;
+        }
+
+        await transporter.sendMail({
+            from: `"Intravvel" <${process.env.EMAIL_USER}>`,
+            to: options.to,
+            subject: options.subject,
+            html: options.html,
+        });
+
+        return true;
+    } catch (error) {
+        console.error('Email sending error:', error);
+        return false;
+    }
+};
+
+const sendContactNotification = async (data: {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+}): Promise<boolean> => {
+    const html = `
+    <h2>New Contact Form Submission</h2>
+    <p><strong>Name:</strong> ${data.name}</p>
+    <p><strong>Email:</strong> ${data.email}</p>
+    <p><strong>Subject:</strong> ${data.subject}</p>
+    <p><strong>Message:</strong></p>
+    <p>${data.message}</p>
+  `;
+
+    return sendEmail({
+        to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER || '',
+        subject: `New Contact: ${data.subject}`,
+        html,
+    });
+};
+
+
+// ============================================
+// 4. UTILS: AI (Inlined)
+// ============================================
+let genAI: GoogleGenerativeAI | null = null;
+
+const initializeAI = () => {
+    if (!genAI && process.env.GEMINI_API_KEY) {
+        genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    }
+    return genAI;
+};
+
+const generateContent = async (prompt: string): Promise<string> => {
+    try {
+        const ai = initializeAI();
+
+        if (!ai) {
+            // throw new Error('Gemini API key not configured');
+            return "AI service not configured.";
+        }
+
+        const model = ai.getGenerativeModel({ model: 'gemini-pro' });
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const text = response.text();
+
+        return text;
+    } catch (error) {
+        console.error('AI generation error:', error);
+        // throw new Error('Failed to generate content');
+        return "Failed to generate AI content.";
+    }
+};
+
+
+// ============================================
+// 5. MIDDLEWARE: AUTH (Inlined)
+// ============================================
+const authenticateToken = async (
+    req: AuthRequest,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const authHeader = req.headers['authorization'];
+        const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
+
+        if (!token) {
+            return res.status(401).json({ error: 'Access token required' });
+        }
+
+        // Verify the JWT token using Supabase
+        const { data: { user }, error } = await supabaseAdmin.auth.getUser(token);
+
+        if (error || !user) {
+            return res.status(403).json({ error: 'Invalid or expired token' });
+        }
+
+        // Attach user to request
+        req.user = user;
+        next();
+    } catch (error) {
+        console.error('Auth middleware error:', error);
+        return res.status(500).json({ error: 'Authentication failed' });
+    }
+};
+
+
+// ============================================
+// 6. EXPRESS APP & ROUTES
+// ============================================
 const app = express();
 
 // CORS configuration
