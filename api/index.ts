@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { supabaseAdmin } from '../lib/supabase';
+import { supabaseAdmin } from './_lib/supabase';
 import { authenticateToken, AuthRequest } from './middleware/auth';
 import { sendContactNotification } from './utils/email';
 import { generateContent } from './utils/ai';
